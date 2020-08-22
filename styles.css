@@ -3,14 +3,14 @@ html {
 }
 
 .container {
-  border: 1px solid red;
-  height: 40vh;
 }
 
 .top-fixed-nav {
   width: 100%;
+  /* background-color: #191970; */
   background-color: #222;
   color: #fff;
+  z-index: 3;
 }
 
 .top-nav-title {
@@ -26,12 +26,32 @@ html {
 
 .banner-img {
   width: 100%;
-  height: 36vh;
-  background-image: url("images/high-altitude-balloon.jpg");
+  height: 30vh;
+  /* background-image: url("images/default-hero-img.jpg"); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   top: 4.1rem;
+}
+
+.articles-container {
+  top: 4.1rem;
+  margin-bottom: 5.5rem;
+}
+
+.article-box {
+  border-bottom: 1px solid gray;
+}
+
+.article-text {
+  font-size: 1.5rem;
+  color: rgb(114, 114, 114);
+  font-weight: 500;
+}
+
+.article-published-date {
+  color: rgb(104, 103, 103);
+  font-size: 1.3rem;
 }
 
 .paper-icon {
@@ -41,7 +61,8 @@ html {
 .footer-nav {
   bottom: 0;
   width: 100%;
-  background-color: #000;
+  /* background-color: #141455; */
+  background-color: #222;
   color: #fff;
   align-items: center;
 }

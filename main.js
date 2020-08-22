@@ -17,6 +17,7 @@
 
 
 // function handleGetHolidaySuccess(response) {
+//   console.log(response);
 //   console.log(response.value[0].title);
 //   console.log(response.value[0].url)
 //   for (let i = 0; i < response.value.length; i++) {
@@ -28,3 +29,39 @@
 // function handleGetHolidayError(error) {
 //   console.log(error);
 // }
+
+
+
+
+$.ajax({
+  url: "https://pixabay.com/api/?key=17998490-32e95c98e4b0f331d6dd541fb&q=astronomy&image_type=photo",
+  method: "GET",
+  success: handleGetHubbleImgSuccess,
+  error: handleGetHubbleImgError
+})
+
+const heroSpaceImg = document.querySelector('.banner-img');
+function handleGetHubbleImgSuccess(response) {
+  const randomSpaceImg = Math.round((Math.random() * 20)) + 1;
+  for (let i = 0; response.hits.length; i++) {
+    if (!response) {
+      heroSpaceImg.style.backgroundImage = 'url("images/default-hero-img.jpg")';
+      return;
+    } else {
+      heroSpaceImg.style.backgroundImage = "url(" + response.hits[randomSpaceImg].webformatURL + ")";
+      return;
+    }
+    // console.log(response.hits);
+
+  }
+  // console.log(response.value[0].title);
+  // console.log(response.value[0].url)
+  // for (let i = 0; i < response.value.length; i++) {
+  //   console.log(response.value[i].title)
+  // }
+}
+
+
+function handleGetHubbleImgError(error) {
+  console.log(error);
+}
