@@ -43,6 +43,10 @@ html {
   border-bottom: 1px solid gray;
 }
 
+.article-headline {
+  color: #000;
+}
+
 .article-description {
   font-size: 1.5rem;
   color: rgb(114, 114, 114);

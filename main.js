@@ -12,20 +12,10 @@ $.ajax({
 })
 
 
-// < div class="article-box mt-2" >
-//   <h3 class="article-headline font-weight-bold text-left">What does the Future of Astronomy Hold? We'll Find Out
-//         Soon - Discovery Magazine</h3>
-//   <p class="article-text">What does the Future of Astronomy Hold? We'll Find Out
-//         Soon - Discover Magazine</p>
-//   <p class="article-published-date font-weight-bold">Aug 14, 2020 at 4:30 pm</p>
-//     </div >
-
 
 function renderArticle(articleData) {
   const articlesContainer = document.querySelector('.articles-container');
   // console.log(articleData);
-  // Next to do
-  // set textcontent & set styles for provider span
 
   for (let i = 0; i < articleData.value.length; i++) {
     const articleBox = document.createElement('div');
@@ -34,16 +24,18 @@ function renderArticle(articleData) {
     // // url
     const articleUrl = document.createElement('a');
     articleUrl.setAttribute('href', articleData.value[i].url);
+    articleUrl.classList.add('article-headline');
 
     // //title
     const articleTitle = document.createElement('h3');
     articleTitle.classList.add('article-title', 'font-weight-bold', 'text-left');
-    articleTitle.innerText = articleData.value[i].title;
+    articleTitle.textContent = articleData.value[i].title.replace(/(<([^>]+)>)/ig, '');
+
 
     // //description
     const articleDescription = document.createElement('p');
     articleDescription.classList.add('article-description');
-    articleDescription.textContent = articleData.value[i].description;
+    articleDescription.textContent = articleData.value[i].description.replace(/(<([^>]+)>)/ig, '');
 
     // // provider
     const articleProvider = document.createElement('span');
@@ -64,11 +56,6 @@ function renderArticle(articleData) {
     // console.log('provider', articleProvider);
     // console.log('date published', articleDate);
 
-    // console.log('title', articleData.value[i].title);
-    // console.log('description', articleData.value[i].description);
-    // console.log('provider', articleData.value[i].provider);
-    // console.log('date published', articleData.value[i].datePublished);
-    // console.log('url', articleData.value[i].url);
     articlesContainer.append(articleUrl);
   }
 }
