@@ -41,6 +41,7 @@ html {
 
 .article-box {
   border-bottom: 1px solid gray;
+  text-decoration: none;
 }
 
 .article-headline {
@@ -48,10 +49,10 @@ html {
 }
 
 .article-description {
-  overflow: hidden;
   font-size: 1.5rem;
   color: rgb(114, 114, 114);
   font-weight: 500;
+  text-decoration: none;
 }
 
 .article-published-date {

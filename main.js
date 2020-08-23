@@ -1,15 +1,57 @@
 
 // Astronomy Article Data
-$.ajax({
-  headers: {
-    "x-rapidapi-host": "contextualwebsearch-websearch-v1.p.rapidapi.com",
-    "x-rapidapi-key": "6bb1f7d518mshee6c717c3746b3ap119550jsned3e9335e862"
-  },
-  url: "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=10&q=Astronomy&safeSearch=false",
-  method: "GET",
-  success: handleGetDataSuccess,
-  error: handleGetDataError
-})
+function renderNewPage(e) {
+  console.log(e.target);
+}
+
+const footLinks = document.querySelectorAll('.foot-box');
+console.log(footLinks);
+
+for (let i = 0; i < footLinks.length; i++) {
+  footLinks[i].addEventListener('click', renderNewPage);
+}
+
+
+let id = null;
+
+// if e.target.attribute of element === id of element clicked, set url for ajax call
+let selectedUrl = "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=meteor%20showers2020%20articles2020&safeSearch=true";
+
+let urlArr = {
+
+}
+
+if (id) {
+
+  $.ajax({
+    headers: {
+      "x-rapidapi-host": "contextualwebsearch-websearch-v1.p.rapidapi.com",
+      "x-rapidapi-key": "6bb1f7d518mshee6c717c3746b3ap119550jsned3e9335e862"
+    },
+
+    // Astronomy
+    // url: "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=Astronomy%20cosmology2020%20articles2020&safeSearch=false",
+    method: "GET",
+
+    // Discoveries
+    // url: "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=cosmology%20discoveries2020&20safeSearch=false",
+
+    // Exoplanets
+    // url: "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=exo%20planets2020%20NASA%20articles2020&safeSearch=false",
+
+
+    // url: "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=meteor%20showers2020%20articles2020&safeSearch=false",
+
+    url: selectedUrl,
+    success: handleGetDataSuccess,
+    error: handleGetDataError
+  })
+
+}
+
+
+
+
 
 
 
@@ -43,20 +85,15 @@ function renderArticle(articleData) {
     articleProvider.textContent = ' - ' + articleData.value[i].provider.name;
 
     // // date
+    const d = new Date(articleData.value[i].datePublished);
     const articleDate = document.createElement('p');
     articleDate.classList.add('article-published-date', 'font-weight-bold');
-    articleDate.textContent = articleData.value[i].datePublished;
+    articleDate.textContent = d;
 
     articleDescription.appendChild(articleProvider);
     articleBox.append(articleTitle, articleDescription, articleDate);
     articleUrl.appendChild(articleBox);
     console.log(articleUrl);
-    // console.log('url', articleUrl);
-    // console.log('title', articleTitle);
-    // console.log('description', articleDescription);
-    // console.log('provider', articleProvider);
-    // console.log('date published', articleDate);
-
     articlesContainer.append(articleUrl);
   }
 }
@@ -74,6 +111,7 @@ function handleGetDataError(error) {
 
 
 
+
 // Astronomy Images
 $.ajax({
   url: "https://pixabay.com/api/?key=17998490-32e95c98e4b0f331d6dd541fb&q=astronomy&image_type=photo",
@@ -83,6 +121,7 @@ $.ajax({
 })
 
 function handleGetHubbleImgSuccess(response) {
+
   const heroSpaceImg = document.querySelector('.banner-img');
   const randomSpaceImg = Math.round((Math.random() * 20)) + 1;
   for (let i = 0; response.hits.length; i++) {
