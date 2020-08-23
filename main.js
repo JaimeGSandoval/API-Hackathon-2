@@ -12,26 +12,27 @@ for (let i = 0; i < footLinks.length; i++) {
 }
 
 
-let id = null;
+let id = true;
 
 // if e.target.attribute of element === id of element clicked, set url for ajax call
 let selectedUrl = "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=meteor%20showers2020%20articles2020&safeSearch=true";
 
-let urlArr = {
+// let urlArr = {
 
-}
+// }
 
 if (id) {
 
   $.ajax({
     headers: {
       "x-rapidapi-host": "contextualwebsearch-websearch-v1.p.rapidapi.com",
-      "x-rapidapi-key": "6bb1f7d518mshee6c717c3746b3ap119550jsned3e9335e862"
+      "x-rapidapi-key": webSearchApiKey
     },
+    async: true,
+    crossDomain: true,
 
     // Astronomy
     // url: "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=Astronomy%20cosmology2020%20articles2020&safeSearch=false",
-    method: "GET",
 
     // Discoveries
     // url: "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=cosmology%20discoveries2020&20safeSearch=false",
@@ -42,17 +43,13 @@ if (id) {
 
     // url: "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=meteor%20showers2020%20articles2020&safeSearch=false",
 
+    method: "GET",
     url: selectedUrl,
     success: handleGetDataSuccess,
     error: handleGetDataError
   })
 
 }
-
-
-
-
-
 
 
 function renderArticle(articleData) {
@@ -114,7 +111,9 @@ function handleGetDataError(error) {
 
 // Astronomy Images
 $.ajax({
-  url: "https://pixabay.com/api/?key=17998490-32e95c98e4b0f331d6dd541fb&q=astronomy&image_type=photo",
+  async: true,
+  crossDomain: true,
+  url: "https://pixabay.com/api/?key=" + pixebayApiKey + "&q=astronomy&image_type=photo",
   method: "GET",
   success: handleGetHubbleImgSuccess,
   error: handleGetHubbleImgError
