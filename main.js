@@ -34,12 +34,13 @@ function renderArticle(articleData) {
 
     // //description
     const articleDescription = document.createElement('p');
-    articleDescription.classList.add('article-description');
+    articleDescription.classList.add('article-description', 'my-3');
     articleDescription.textContent = articleData.value[i].description.replace(/(<([^>]+)>)/ig, '');
 
     // // provider
     const articleProvider = document.createElement('span');
-    articleProvider.textContent = articleData.value[i].provider.name;
+    articleProvider.classList.add('text-uppercase');
+    articleProvider.textContent = ' - ' + articleData.value[i].provider.name;
 
     // // date
     const articleDate = document.createElement('p');
@@ -74,30 +75,30 @@ function handleGetDataError(error) {
 
 
 // Astronomy Images
-// $.ajax({
-//   url: "https://pixabay.com/api/?key=17998490-32e95c98e4b0f331d6dd541fb&q=astronomy&image_type=photo",
-//   method: "GET",
-//   success: handleGetHubbleImgSuccess,
-//   error: handleGetHubbleImgError
-// })
+$.ajax({
+  url: "https://pixabay.com/api/?key=17998490-32e95c98e4b0f331d6dd541fb&q=astronomy&image_type=photo",
+  method: "GET",
+  success: handleGetHubbleImgSuccess,
+  error: handleGetHubbleImgError
+})
 
-// function handleGetHubbleImgSuccess(response) {
-//   const heroSpaceImg = document.querySelector('.banner-img');
-//   const randomSpaceImg = Math.round((Math.random() * 20)) + 1;
-//   for (let i = 0; response.hits.length; i++) {
-//     console.log(response.hits[i]);
-//     if (!response) {
-//       heroSpaceImg.style.backgroundImage = 'url("images/default-hero-img.jpg")';
-//       return;
-//     } else {
-//       heroSpaceImg.style.backgroundImage = "url(" + response.hits[randomSpaceImg].webformatURL + ")";
-//       return;
-//     }
+function handleGetHubbleImgSuccess(response) {
+  const heroSpaceImg = document.querySelector('.banner-img');
+  const randomSpaceImg = Math.round((Math.random() * 20)) + 1;
+  for (let i = 0; response.hits.length; i++) {
+    console.log(response.hits[i]);
+    if (!response) {
+      heroSpaceImg.style.backgroundImage = 'url("images/default-hero-img.jpg")';
+      return;
+    } else {
+      heroSpaceImg.style.backgroundImage = "url(" + response.hits[randomSpaceImg].webformatURL + ")";
+      return;
+    }
 
-//   }
-// }
+  }
+}
 
 
-// function handleGetHubbleImgError(error) {
-//   console.log(error);
-// }
+function handleGetHubbleImgError(error) {
+  console.log(error);
+}

@@ -48,6 +48,7 @@ html {
 }
 
 .article-description {
+  overflow: hidden;
   font-size: 1.5rem;
   color: rgb(114, 114, 114);
   font-weight: 500;
