@@ -14,7 +14,7 @@ html {
 }
 
 .top-nav-title {
-  margin: auto;
+  /* margin: auto; */
 }
 
 .mobile-menu-icon {
@@ -41,12 +41,18 @@ html {
 
 .article-box {
   border-bottom: 1px solid gray;
+  text-decoration: none;
 }
 
-.article-text {
+.article-headline {
+  color: #000;
+}
+
+.article-description {
   font-size: 1.5rem;
   color: rgb(114, 114, 114);
   font-weight: 500;
+  text-decoration: none;
 }
 
 .article-published-date {
