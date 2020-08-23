@@ -14,7 +14,7 @@ html {
 }
 
 .top-nav-title {
-  margin: auto;
+  /* margin: auto; */
 }
 
 .mobile-menu-icon {
@@ -43,7 +43,7 @@ html {
   border-bottom: 1px solid gray;
 }
 
-.article-text {
+.article-description {
   font-size: 1.5rem;
   color: rgb(114, 114, 114);
   font-weight: 500;
