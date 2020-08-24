@@ -105,7 +105,8 @@ function renderArticle(articleData) {
 
     articleDescription.appendChild(articleProvider);
     articleBox.append(articleTitle, articleDescription, articleDate);
-    articlesContainer.append(articleUrl, articleBox)
+    articleUrl.appendChild(articleBox);
+    articlesContainer.append(articleUrl)
   }
 
   loader.classList.add('hidden');
