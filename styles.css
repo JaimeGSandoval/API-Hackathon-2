@@ -7,6 +7,7 @@ html {
   background-color: #222;
   color: #fff;
   z-index: 3;
+  height: 5rem;
 }
 
 .mobile-menu-icon {
