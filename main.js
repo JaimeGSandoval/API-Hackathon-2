@@ -77,7 +77,6 @@ function renderNewPage(e) {
 
 
 function renderArticle(articleData) {
-
   for (let i = 0; i < articleData.value.length; i++) {
     const articleBox = document.createElement('div');
     const articleUrl = document.createElement('a');
@@ -106,10 +105,9 @@ function renderArticle(articleData) {
 
     articleDescription.appendChild(articleProvider);
     articleBox.append(articleTitle, articleDescription, articleDate);
-    // articleUrl.appendChild(articleBox);
-    // articlesContainer.appendChild(articleUrl);
     articlesContainer.append(articleUrl, articleBox)
   }
+
   loader.classList.add('hidden');
 }
 
@@ -137,7 +135,6 @@ function renderImage() {
 }
 
 function handleGetHubbleImgSuccess(response) {
-
   const heroSpaceImg = document.querySelector('.banner-img');
   const randomSpaceImg = Math.floor((Math.random() * response.hits.length + 1));
   if (!response || response.hits[randomSpaceImg].webformatURL === heroSpaceImg.style.backgroundImage) {
