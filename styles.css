@@ -104,3 +104,15 @@ body {
 .hidden {
   display: none;
 }
+
+@media screen and (min-width: 375px) {
+  .bottom-nav-icon-box p {
+    font-size: 1.7rem;
+  }
+}
+
+@media screen and (min-width: 414px) {
+  .bottom-nav-icon-box p {
+    font-size: 1.9rem;
+  }
+}
