@@ -5,14 +5,14 @@ function renderNewPage(e) {
 }
 
 const footLinks = document.querySelectorAll('.foot-box');
-console.log(footLinks);
+// console.log(footLinks);
 
 for (let i = 0; i < footLinks.length; i++) {
   footLinks[i].addEventListener('click', renderNewPage);
 }
 
 
-let id = true;
+let id = null;
 
 // if e.target.attribute of element === id of element clicked, set url for ajax call
 let selectedUrl = "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=meteor%20showers2020%20articles2020&safeSearch=true";
@@ -90,7 +90,7 @@ function renderArticle(articleData) {
     articleDescription.appendChild(articleProvider);
     articleBox.append(articleTitle, articleDescription, articleDate);
     articleUrl.appendChild(articleBox);
-    console.log(articleUrl);
+    // console.log(articleUrl);
     articlesContainer.append(articleUrl);
   }
 }
@@ -113,7 +113,7 @@ function handleGetDataError(error) {
 $.ajax({
   async: true,
   crossDomain: true,
-  url: "https://pixabay.com/api/?key=" + pixebayApiKey + "&q=astronomy&image_type=photo",
+  url: "https://pixabay.com/api/?key=" + pixebayApiKey + "&per_page=50&q=astronomy&image_type=photo",
   method: "GET",
   success: handleGetHubbleImgSuccess,
   error: handleGetHubbleImgError
@@ -122,18 +122,14 @@ $.ajax({
 function handleGetHubbleImgSuccess(response) {
 
   const heroSpaceImg = document.querySelector('.banner-img');
-  const randomSpaceImg = Math.round((Math.random() * 20)) + 1;
-  for (let i = 0; response.hits.length; i++) {
-    console.log(response.hits[i]);
-    if (!response) {
-      heroSpaceImg.style.backgroundImage = 'url("images/default-hero-img.jpg")';
-      return;
-    } else {
-      heroSpaceImg.style.backgroundImage = "url(" + response.hits[randomSpaceImg].webformatURL + ")";
-      return;
-    }
-
+  const randomSpaceImg = Math.floor((Math.random() * response.hits.length + 1));
+  // console.log(randomSpaceImg)
+  // console.log(response.hits);
+  if (!response || response.hits[randomSpaceImg].webformatURL === heroSpaceImg.style.backgroundImage) {
+    console.log(response.hits[randomSpaceImg].webformatURL);
+    return heroSpaceImg.style.backgroundImage = 'url("images/default-hero-img.jpg")';
   }
+  return heroSpaceImg.style.backgroundImage = "url(" + response.hits[randomSpaceImg].webformatURL + ")";
 }
 
 
