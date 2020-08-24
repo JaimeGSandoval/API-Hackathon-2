@@ -2,19 +2,11 @@ html {
   font-size: 62.5%;
 }
 
-.container {
-}
-
 .top-fixed-nav {
   width: 100%;
-  /* background-color: #191970; */
   background-color: #222;
   color: #fff;
   z-index: 3;
-}
-
-.top-nav-title {
-  /* margin: auto; */
 }
 
 .mobile-menu-icon {
@@ -27,7 +19,6 @@ html {
 .banner-img {
   width: 100%;
   height: 30vh;
-  /* background-image: url("images/default-hero-img.jpg"); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -67,7 +58,6 @@ html {
 .footer-nav {
   bottom: 0;
   width: 100%;
-  /* background-color: #141455; */
   background-color: #222;
   color: #fff;
   align-items: center;
@@ -75,4 +65,28 @@ html {
 
 .bottom-nav-icon-box p {
   font-size: 1.3rem;
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 9rem;
+  height: 9rem;
+  background-color: black;
+  margin: 12rem auto 0 auto;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.hidden {
+  display: none;
 }
