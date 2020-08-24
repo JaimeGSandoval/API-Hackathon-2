@@ -2,12 +2,20 @@ html {
   font-size: 62.5%;
 }
 
+body {
+  font-family: "Quicksand", sans-serif;
+}
+
 .top-fixed-nav {
   width: 100%;
   background-color: #222;
   color: #fff;
   z-index: 3;
   height: 5rem;
+}
+
+.top-nav-title {
+  font-size: 2.5rem;
 }
 
 .mobile-menu-icon {
@@ -27,6 +35,7 @@ html {
 }
 
 .articles-container {
+  overflow-x: hidden;
   top: 4.1rem;
   margin-bottom: 5.5rem;
 }
@@ -36,24 +45,28 @@ html {
   text-decoration: none;
 }
 
+.article-title {
+  font-size: 2.6rem;
+}
+
 .article-headline {
   color: #000;
 }
 
 .article-description {
-  font-size: 1.5rem;
+  font-size: 2.2rem;
   color: rgb(114, 114, 114);
-  font-weight: 500;
+  font-weight: 600;
   text-decoration: none;
 }
 
 .article-published-date {
   color: rgb(104, 103, 103);
-  font-size: 1.3rem;
+  font-size: 1.8rem;
 }
 
 .paper-icon {
-  font-size: 2.5rem;
+  font-size: 4rem;
 }
 
 .footer-nav {
@@ -65,7 +78,7 @@ html {
 }
 
 .bottom-nav-icon-box p {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
 }
 
 .loader {
