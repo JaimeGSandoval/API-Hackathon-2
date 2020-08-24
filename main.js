@@ -1,7 +1,13 @@
 const articlesContainer = document.querySelector('.articles-container');
 const footerContainer = document.querySelector('.footer-nav');
 const loader = document.querySelector('#loader');
+const icons = document.querySelectorAll('.icons');
+const starIcon = document.querySelector('.fa-star');
+const newsPaperIcon = document.querySelector('.fa-newspaper');
+const globeIcon = document.querySelector('.fa-globe');
+const meteorIcon = document.querySelector('.fa-meteor');
 let headerTitle = document.querySelector('.top-nav-title');
+let currentPage = null;
 let selectedUrl = null;
 
 footerContainer.addEventListener('click', renderNewPage);
@@ -24,10 +30,18 @@ const headerTitles = {
   "meteors": "Meteor Showers"
 }
 
+const activeIcon = {
+  "astronomy": "fa star",
+  "discoveries": 'fa newspaper',
+  "exoplanets": "fa globe",
+  "meteors": "fa meteor"
+}
+
 
 
 function start() {
   renderImage();
+  currentPage = "astronomy";
   selectedUrl = "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=Astronomy%20cosmology2020%20articles2020&safeSearch=false";
 
   $.ajax({
@@ -49,11 +63,19 @@ function start() {
 
 
 function renderNewPage(e) {
+  if (e.target.dataset.queryId === currentPage) {
+    return;
+  }
+
+  addCurrentPageClass(e);
   footerContainer.removeEventListener('click', renderNewPage, false);
   renderImage();
 
   let dataQueryId = e.target.getAttribute('data-query-id');
   let title = e.target.dataset.queryId;
+  currentPage = dataQueryId;
+
+
 
   selectedUrl = urls[dataQueryId];
 
@@ -147,6 +169,23 @@ function handleGetHubbleImgSuccess(response) {
 
 function handleGetHubbleImgError(error) {
   console.log(error);
+}
+
+function addCurrentPageClass(e) {
+
+  for (let i = 0; i < icons.length; i++) {
+    icons[i].classList.remove('on-current-page');
+  }
+
+  if (e.target.dataset.queryId === 'astronomy') {
+    starIcon.classList.add('on-current-page');
+  } else if (e.target.dataset.queryId === 'discoveries') {
+    newsPaperIcon.classList.add('on-current-page');
+  } else if (e.target.dataset.queryId === 'exoplanets') {
+    globeIcon.classList.add('on-current-page');
+  } else {
+    meteorIcon.classList.add('on-current-page');
+  }
 }
 
 
