@@ -52,6 +52,8 @@ function start() {
 
 function renderNewPage(e) {
 
+  let dataQueryId = e.target.getAttribute('data-query-id');
+  let title = e.target.dataset.queryId;
 
   selectedUrl = urls[dataQueryId];
 
@@ -68,8 +70,6 @@ function renderNewPage(e) {
     error: handleGetDataError
   })
 
-  let title = e.target.dataset.queryId;
-  let dataQueryId = e.target.getAttribute('data-query-id');
   headerTitle.textContent = headerTitles[title];
   loader.classList.remove('hidden');
   articlesContainer.innerHTML = '';
@@ -106,8 +106,9 @@ function renderArticle(articleData) {
 
     articleDescription.appendChild(articleProvider);
     articleBox.append(articleTitle, articleDescription, articleDate);
-    articleUrl.appendChild(articleBox);
-    articlesContainer.append(articleUrl);
+    // articleUrl.appendChild(articleBox);
+    // articlesContainer.appendChild(articleUrl);
+    articlesContainer.append(articleUrl, articleBox)
   }
   loader.classList.add('hidden');
 }
