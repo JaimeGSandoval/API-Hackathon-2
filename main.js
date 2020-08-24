@@ -43,6 +43,7 @@ function start() {
   renderImage();
   currentPage = "astronomy";
   selectedUrl = "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=Astronomy%20cosmology2020%20articles2020&safeSearch=false";
+  starIcon.classList.add('on-current-page');
 
   $.ajax({
     headers: {
