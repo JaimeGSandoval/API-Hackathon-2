@@ -1,8 +1,10 @@
 const articlesContainer = document.querySelector('.articles-container');
-const footLinks = document.querySelectorAll('.foot-box');
+const footerContainer = document.querySelector('.footer-nav');
 const loader = document.querySelector('#loader');
 let headerTitle = document.querySelector('.top-nav-title');
 let selectedUrl = null;
+
+footerContainer.addEventListener('click', renderNewPage);
 
 const urls = {
   'astronomy': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=Astronomy%20cosmology2020%20articles2020&safeSearch=false",
@@ -25,7 +27,7 @@ const headerTitles = {
 
 
 function start() {
-
+  renderImage();
   selectedUrl = "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=Astronomy%20cosmology2020%20articles2020&safeSearch=false";
 
   $.ajax({
@@ -41,16 +43,14 @@ function start() {
     error: handleGetDataError
   })
 
-  for (let i = 0; i < footLinks.length; i++) {
-    footLinks[i].addEventListener('click', renderNewPage);
-  }
-
   headerTitle.textContent = 'Astronomy News';
 }
 
 
 
 function renderNewPage(e) {
+  footerContainer.removeEventListener('click', renderNewPage, false);
+  renderImage();
 
   let dataQueryId = e.target.getAttribute('data-query-id');
   let title = e.target.dataset.queryId;
@@ -110,12 +110,12 @@ function renderArticle(articleData) {
   }
 
   loader.classList.add('hidden');
+  footerContainer.addEventListener('click', renderNewPage);
 }
 
 
 function handleGetDataSuccess(response) {
   renderArticle(response);
-  renderImage();
 }
 
 function handleGetDataError(error) {
