@@ -16,10 +16,10 @@ Coming Soon!
 
 ## Features
 
-- User can select a topic of choice that's a popular field in Science and read the most recent news on that subject.
-- User is given a list of articles which contains the publish date, a brief headline, and a description about the article's content.
+- User can select a topic of choice that is a popular field in Science and read the most recent news on that subject.
+- User is given a list of articles, each of which containing the article's publish date, headline, and brief description about the article's content.
 - User can select an article, and they will be sent to the website which published the article.
-- User has access to resources outside of the app, such as NASA.COM, SPACE.COM and SETI.COM via links.
+- User has access to resources outside of the app, such as NASA.COM, SPACE.COM and SETI.ORG via links.
 
 ## Preview
 
