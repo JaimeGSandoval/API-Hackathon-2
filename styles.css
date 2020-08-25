@@ -11,6 +11,11 @@ h2 {
   width: 20rem;
 }
 
+.article-section-title {
+  color: rgb(104, 103, 103);
+  font-weight: bold;
+}
+
 .mobile-menu-icon {
   position: absolute;
   left: 1.5rem;

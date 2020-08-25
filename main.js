@@ -33,14 +33,23 @@ mobileMenuIcon.addEventListener('click', sideNavClass);
 
 const urls = {
   'astronomy': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=Astronomy%20news%20articles2020&safeSearch=false",
-  'discoveries': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=cosmology%20discoveries2020&20safeSearch=false",
-  'exoplanets': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=exo%20planets2020%20NASA%20articles2020&safeSearch=false",
+
+  'discoveries': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=cosmology%20new%20science%20quantum%20phyisics%20cern%20%20astrobiology%20discoveries2020&20safeSearch=false",
+
+  'exoplanets': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=exoplanets2020%20NASA%20plantetary%20science%20nasa%20seti%20articles2020&safeSearch=false",
+
   'meteors': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=meteor%20showers2020%20articles2020&safeSearch=false",
+
   "astrobiology": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=astrobiology%20news2020%20articles2020&safeSearch=false",
+
   "quantum": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=quantum%20physics%20mechanics%20news2020%20articles2020&safeSearch=false",
+
   "gravity": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=gravity%20physics%20waves%20science%20news2020%20articles2020&safeSearch=false",
+
   'seti': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=SETI%20physics%20astrobiology%20exoplanets%20seti%20org%20%20news2020%20articles2020&safeSearch=false",
+
   "cern": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=CERN%20physics%20particle%20collider%20hydron%20news2020%20articles2020&safeSearch=false",
+
   "d-wave": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=D-Wave%20quantum%20computing%20cern%20news2020%20articles2020&safeSearch=false"
 
 }
@@ -129,6 +138,11 @@ function renderNewPage(e) {
 
 
 function renderArticle(articleData) {
+  const articleSectionTitle = document.createElement('h2');
+  articleSectionTitle.textContent = "ARTICLES";
+  articleSectionTitle.classList.add('article-section-title');
+  articlesContainer.appendChild(articleSectionTitle);
+
   for (let i = 0; i < articleData.value.length; i++) {
     const articleBox = document.createElement('div');
     const articleUrl = document.createElement('a');
