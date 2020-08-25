@@ -2,29 +2,21 @@ const articlesContainer = document.querySelector('.articles-container');
 const footerContainer = document.querySelector('.footer-nav');
 const loader = document.querySelector('#loader');
 const icons = document.querySelectorAll('.icons');
-const starIcon = document.querySelector('.fa-star');
+const astronautIcon = document.querySelector('.fa-user-astronaut')
 const newsPaperIcon = document.querySelector('.fa-newspaper');
 const globeIcon = document.querySelector('.fa-globe');
 const meteorIcon = document.querySelector('.fa-meteor');
+const sideNavMobile = document.querySelector('.side-nav-mobile');
 let headerTitle = document.querySelector('.top-nav-title');
 let currentPage = null;
 let selectedUrl = null;
 
 footerContainer.addEventListener('click', renderNewPage);
-
+sideNavMobile.addEventListener('click', renderNewPage);
 
 const mobileMenuIcon = document.querySelector(".mobile-menu-icon");
 const modalOverlay = document.querySelector('.modal-overlay');
 
-
-
-// function hiddenClass() {
-//   if (modalOverlay.classList.contains('hidden')) {
-//     modalOverlay.classList.remove('hidden');
-//   } else {
-//     modalOverlay.classList.add('hidden');
-//   }
-// }
 
 function sideNavClass() {
   if (modalOverlay.classList.contains('sideNav')) {
@@ -40,13 +32,16 @@ mobileMenuIcon.addEventListener('click', sideNavClass);
 
 
 const urls = {
-  'astronomy': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=Astronomy%20cosmology2020%20articles2020&safeSearch=false",
-
+  'astronomy': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=Astronomy%20news%20articles2020&safeSearch=false",
   'discoveries': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=cosmology%20discoveries2020&20safeSearch=false",
-
   'exoplanets': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=exo%20planets2020%20NASA%20articles2020&safeSearch=false",
-
-  'meteors': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=meteor%20showers2020%20articles2020&safeSearch=false"
+  'meteors': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=meteor%20showers2020%20articles2020&safeSearch=false",
+  "astrobiology": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=astrobiology%20news2020%20articles2020&safeSearch=false",
+  "quantum": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=quantum%20physics%20mechanics%20news2020%20articles2020&safeSearch=false",
+  "gravity": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=gravity%20physics%20waves%20science%20news2020%20articles2020&safeSearch=false",
+  'seti': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=SETI%20physics%20astrobiology%20exoplanets%20seti%20org%20%20news2020%20articles2020&safeSearch=false",
+  "cern": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=CERN%20physics%20particle%20collider%20hydron%20news2020%20articles2020&safeSearch=false",
+  "d-wave": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=D-Wave%20quantum%20computing%20cern%20news2020%20articles2020&safeSearch=false"
 
 }
 
@@ -54,14 +49,13 @@ const headerTitles = {
   "astronomy": "Astronomy News",
   "discoveries": 'Discoveries',
   "exoplanets": "Exoplanets",
-  "meteors": "Meteor Showers"
-}
-
-const activeIcon = {
-  "astronomy": "fa star",
-  "discoveries": 'fa newspaper',
-  "exoplanets": "fa globe",
-  "meteors": "fa meteor"
+  "meteors": "Meteor Showers",
+  "astrobiology": "Astrobiology",
+  "quantum": "Quantum Physics",
+  "gravity": "Gravity",
+  "seti": "SETI",
+  "cern": "CERN",
+  "d-wave": "Quantum Computing"
 }
 
 
@@ -70,7 +64,7 @@ function start() {
   renderImage();
   currentPage = "astronomy";
   selectedUrl = "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=Astronomy%20cosmology2020%20articles2020&safeSearch=false";
-  starIcon.classList.add('on-current-page');
+  astronautIcon.classList.add('on-current-page');
 
   $.ajax({
     headers: {
@@ -95,11 +89,13 @@ function renderNewPage(e) {
     return;
   }
 
+  modalOverlay.classList.remove('sideNav');
   addCurrentPageClass(e);
   footerContainer.removeEventListener('click', renderNewPage, false);
   renderImage();
-
+  console.log(e.target)
   let dataQueryId = e.target.getAttribute('data-query-id');
+
   let title = e.target.dataset.queryId;
   currentPage = dataQueryId;
 
@@ -121,6 +117,12 @@ function renderNewPage(e) {
   })
 
   headerTitle.textContent = headerTitles[title];
+  console.log(headerTitle)
+  if (headerTitle.textContent === "Quantum Computing") {
+    headerTitle.classList.add('quantum-font');
+  } else {
+    headerTitle.classList.remove('quantum-font');
+  }
   loader.classList.remove('hidden');
   articlesContainer.innerHTML = '';
 }
@@ -187,7 +189,7 @@ function renderImage() {
 
 function handleGetHubbleImgSuccess(response) {
   const heroSpaceImg = document.querySelector('.banner-img');
-  const randomSpaceImg = Math.floor((Math.random() * response.hits.length + 1));
+  const randomSpaceImg = Math.floor((Math.random() * response.hits.length));
   if (!response || response.hits[randomSpaceImg].webformatURL === heroSpaceImg.style.backgroundImage) {
     return heroSpaceImg.style.backgroundImage = 'url("images/default-hero-img.jpg")';
   }
@@ -201,18 +203,22 @@ function handleGetHubbleImgError(error) {
 
 function addCurrentPageClass(e) {
 
+
+
   for (let i = 0; i < icons.length; i++) {
     icons[i].classList.remove('on-current-page');
   }
 
   if (e.target.dataset.queryId === 'astronomy') {
-    starIcon.classList.add('on-current-page');
+    astronautIcon.classList.add('on-current-page');
   } else if (e.target.dataset.queryId === 'discoveries') {
     newsPaperIcon.classList.add('on-current-page');
   } else if (e.target.dataset.queryId === 'exoplanets') {
     globeIcon.classList.add('on-current-page');
-  } else {
+  } else if (e.target.dataset.queryId === 'meteors') {
     meteorIcon.classList.add('on-current-page');
+  } else {
+    return;
   }
 }
 
