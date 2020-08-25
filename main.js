@@ -12,6 +12,33 @@ let selectedUrl = null;
 
 footerContainer.addEventListener('click', renderNewPage);
 
+
+const mobileMenuIcon = document.querySelector(".mobile-menu-icon");
+const modalOverlay = document.querySelector('.modal-overlay');
+
+
+
+// function hiddenClass() {
+//   if (modalOverlay.classList.contains('hidden')) {
+//     modalOverlay.classList.remove('hidden');
+//   } else {
+//     modalOverlay.classList.add('hidden');
+//   }
+// }
+
+function sideNavClass() {
+  if (modalOverlay.classList.contains('sideNav')) {
+    modalOverlay.classList.remove('sideNav');
+  } else {
+    modalOverlay.classList.add('sideNav');
+  }
+}
+
+mobileMenuIcon.addEventListener('click', sideNavClass);
+
+
+
+
 const urls = {
   'astronomy': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=Astronomy%20cosmology2020%20articles2020&safeSearch=false",
 
