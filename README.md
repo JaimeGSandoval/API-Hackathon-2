@@ -18,7 +18,7 @@ Coming Soon!
 
 - User can select a field of choice in Science and read the most recent news on that subject.
 - User is given a list of articles, each of which containing the article's publish date, headline, and a brief description about the article's content.
-- User can select an article, and they will be sent to the website which published the article so they may read in it's entirety.
+- User can select an article, and they will be sent to the website which published the article, so they may read it in its entirety.
 - User has access to resources outside of the app, such as NASA.COM, SPACE.COM and SETI.ORG via links.
 
 ## Preview
