@@ -203,8 +203,6 @@ function handleGetHubbleImgError(error) {
 
 function addCurrentPageClass(e) {
 
-
-
   for (let i = 0; i < icons.length; i++) {
     icons[i].classList.remove('on-current-page');
   }
