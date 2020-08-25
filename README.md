@@ -35,7 +35,7 @@ Coming Soon!
 1. Clone the repository.
 
     ```shell
-    git clone https://github.com/Learning-Fuze/sgt-react
-    cd sgt-react
+    git clone https://github.com/JaimeGSandoval/today-in-science.git
+    cd today-in-science
     ```
 
