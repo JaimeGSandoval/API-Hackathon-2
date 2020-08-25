@@ -29,6 +29,7 @@ Coming Soon!
 
 ### System Requirements
 
+- none
 
 ### Getting Started
 
