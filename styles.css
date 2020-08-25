@@ -6,23 +6,60 @@ body {
   font-family: "Quicksand", sans-serif;
 }
 
-.top-fixed-nav {
-  width: 100%;
-  background-color: #222;
+h2 {
   color: #fff;
-  z-index: 3;
-  height: 5rem;
+  width: 20rem;
 }
 
-.top-nav-title {
-  font-size: 2.5rem;
+.article-section-title {
+  color: rgb(104, 103, 103);
+  font-weight: bold;
 }
 
 .mobile-menu-icon {
   position: absolute;
   left: 1.5rem;
   top: 1.2rem;
+  font-size: 2.6rem;
+}
+
+.modal-overlay {
+  top: 0;
+  height: 100vh;
+  width: 0;
+  z-index: 3;
+  background-color: #000;
+  transition: 0.3s;
+  overflow-x: hidden;
+}
+
+.mobile-menu-content {
+  margin-top: 6rem;
+}
+
+.mobile-menu-content p,
+.mobile-menu-content a {
+  color: #fff;
   font-size: 2rem;
+  transition: 0.3s;
+  line-height: 4rem;
+  width: 23rem;
+}
+
+.side-nav-item {
+  cursor: pointer;
+}
+
+.top-fixed-nav {
+  width: 100%;
+  background-color: #222;
+  color: #fff;
+  z-index: 3;
+  height: 5.5rem;
+}
+
+.top-nav-title {
+  font-size: 2.5rem;
 }
 
 .banner-img {
@@ -46,7 +83,7 @@ body {
 }
 
 .article-title {
-  font-size: 2.6rem;
+  font-size: 2.2rem;
 }
 
 .article-headline {
@@ -54,7 +91,7 @@ body {
 }
 
 .article-description {
-  font-size: 2.2rem;
+  font-size: 2rem;
   color: rgb(114, 114, 114);
   font-weight: 600;
   text-decoration: none;
@@ -65,8 +102,8 @@ body {
   font-size: 1.8rem;
 }
 
-.paper-icon {
-  font-size: 4rem;
+.icons {
+  font-size: 3rem;
 }
 
 .footer-nav {
@@ -79,6 +116,10 @@ body {
 
 .bottom-nav-icon-box p {
   font-size: 1.5rem;
+}
+
+.foot-box {
+  cursor: pointer;
 }
 
 .loader {
@@ -101,6 +142,66 @@ body {
   }
 }
 
+.on-current-page {
+  color: #3498db;
+}
+
 .hidden {
   display: none;
+}
+
+.sideNav {
+  width: 250px;
+}
+@media only screen and (orientation: landscape) {
+  .banner-img {
+    height: 44vh;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .bottom-nav-icon-box p {
+    font-size: 1.7rem;
+  }
+
+  .icons {
+    font-size: 4rem;
+  }
+
+  .article-title {
+    font-size: 2.7rem;
+  }
+
+  .article-description {
+    font-size: 2.2rem;
+  }
+}
+
+@media screen and (min-width: 414px) {
+  .bottom-nav-icon-box p {
+    font-size: 1.9rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .article-title {
+    font-size: 3rem;
+    margin-top: 2rem;
+  }
+
+  .article-description {
+    font-size: 2.5rem;
+  }
+
+  .banner-img {
+    height: 40vh;
+  }
+
+  .top-nav-title {
+    font-size: 3rem;
+  }
+}
+
+.quantum-font {
+  font-size: 2.2rem;
 }
