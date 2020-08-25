@@ -23,7 +23,7 @@ Coming Soon!
 
 ## Preview
 
-![SGT React](assets/sgt_react.gif)
+![today-in-science](today-in-science.gif)
 
 ## Development
 
