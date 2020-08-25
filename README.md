@@ -23,7 +23,7 @@ Coming Soon!
 
 ## Preview
 
-![today-in-science](today-in-science.gif)
+![today-in-science](images/today-in-science.gif)
 
 ## Development
 
