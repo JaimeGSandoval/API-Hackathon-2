@@ -6,11 +6,21 @@ body {
   font-family: "Quicksand", sans-serif;
 }
 
+h2 {
+  color: #fff;
+  width: 20rem;
+}
+
+.article-section-title {
+  color: rgb(104, 103, 103);
+  font-weight: bold;
+}
+
 .mobile-menu-icon {
   position: absolute;
   left: 1.5rem;
   top: 1.2rem;
-  font-size: 2rem;
+  font-size: 2.6rem;
 }
 
 .modal-overlay {
@@ -24,15 +34,20 @@ body {
 }
 
 .mobile-menu-content {
-  margin-top: 5rem;
+  margin-top: 6rem;
 }
 
+.mobile-menu-content p,
 .mobile-menu-content a {
   color: #fff;
   font-size: 2rem;
   transition: 0.3s;
   line-height: 4rem;
-  width: 19rem;
+  width: 23rem;
+}
+
+.side-nav-item {
+  cursor: pointer;
 }
 
 .top-fixed-nav {
@@ -40,7 +55,7 @@ body {
   background-color: #222;
   color: #fff;
   z-index: 3;
-  height: 5rem;
+  height: 5.5rem;
 }
 
 .top-nav-title {
@@ -101,6 +116,10 @@ body {
 
 .bottom-nav-icon-box p {
   font-size: 1.5rem;
+}
+
+.foot-box {
+  cursor: pointer;
 }
 
 .loader {
@@ -181,4 +200,8 @@ body {
   .top-nav-title {
     font-size: 3rem;
   }
+}
+
+.quantum-font {
+  font-size: 2.2rem;
 }
