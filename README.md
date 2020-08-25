@@ -27,10 +27,6 @@ Coming Soon!
 
 ## Development
 
-### System Requirements
-
-- none
-
 ### Getting Started
 
 1. Clone the repository.
