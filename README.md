@@ -1,5 +1,5 @@
 # Today In Science
-An app that utilizes two APIs to bring the user the most recent articles that are focused on the most exciting fields in Science today, such as Astronomy, Astrobiology, Quantum Physics and Quantum Computing. These are just some of the topics covered. Many more fields of Science are available to catch up on and discover with the Today In Science app.  
+An app that utilizes two APIs to bring the user the most recent articles that are focused on the most exciting fields in Science today, such as Astronomy, Astrobiology, Quantum Physics and Quantum Computing. These are just some of the topics covered. Many more fields of Science are available to the user for them to catch up on and discover with the Today In Science app.  
 
 ## Technologies Used
 
