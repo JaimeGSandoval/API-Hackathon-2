@@ -33,8 +33,8 @@ h2 {
   overflow-x: hidden;
 }
 
-.mobile-menu-content {
-  margin-top: 6rem;
+.mobile-menu-content:nth-of-type(2) {
+  margin-top: 4rem;
 }
 
 .mobile-menu-content p,
@@ -73,7 +73,7 @@ h2 {
 
 .articles-container {
   overflow-x: hidden;
-  top: 4.1rem;
+  top: 3rem;
   margin-bottom: 5.5rem;
 }
 
@@ -100,6 +100,10 @@ h2 {
 .article-published-date {
   color: rgb(104, 103, 103);
   font-size: 1.8rem;
+}
+
+.quantum-font {
+  font-size: 2.2rem;
 }
 
 .icons {
@@ -175,6 +179,14 @@ h2 {
   .article-description {
     font-size: 2.2rem;
   }
+
+  .mobile-menu-content {
+    margin-top: 6rem;
+  }
+
+  .quantum-font {
+    font-size: 2.5rem;
+  }
 }
 
 @media screen and (min-width: 414px) {
@@ -200,8 +212,4 @@ h2 {
   .top-nav-title {
     font-size: 3rem;
   }
-}
-
-.quantum-font {
-  font-size: 2.2rem;
 }
