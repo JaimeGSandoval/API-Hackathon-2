@@ -5,21 +5,20 @@ const icons = document.querySelectorAll('.icons');
 const astronautIcon = document.querySelector('.fa-user-astronaut');
 const sideNavMobile = document.querySelector('.side-nav-mobile');
 const mobileMenuIcon = document.querySelector(".mobile-menu-icon");
-const modalOverlay = document.querySelector('.modal-overlay');
+const sideModalOverlay = document.querySelector('.side-modal-overlay');
 let headerTitle = document.querySelector('.top-nav-title');
 let currentPage = null;
 let selectedUrl = null;
 
-footerContainer.addEventListener('click', renderNewPage);
+// footerContainer.addEventListener('click', renderNewPage);
 sideNavMobile.addEventListener('click', renderNewPage);
 
 
-
 function sideNavClass() {
-  if (modalOverlay.classList.contains('sideNav')) {
-    modalOverlay.classList.remove('sideNav');
+  if (sideModalOverlay.classList.contains('sideNav')) {
+    sideModalOverlay.classList.remove('sideNav');
   } else {
-    modalOverlay.classList.add('sideNav');
+    sideModalOverlay.classList.add('sideNav');
   }
 }
 
@@ -66,6 +65,7 @@ const headerTitles = {
 
 
 
+
 function start() {
   renderImage();
   currentPage = "astronomy";
@@ -88,16 +88,58 @@ function start() {
   headerTitle.textContent = 'Astronomy News';
 }
 
+function handleGetDataSuccess(response) {
+  renderArticle(response);
+}
+
+function handleGetDataError(error) {
+  console.log(error);
+}
+
+
+
+
+
+function renderImage() {
+  $.ajax({
+    async: true,
+    crossDomain: true,
+    url: "https://pixabay.com/api/?key=" + pixebayApiKey + "&per_page=50&q=astronomy&image_type=photo",
+    method: "GET",
+    success: handleGetHubbleImgSuccess,
+    error: handleGetHubbleImgError
+  })
+
+
+}
+
+function handleGetHubbleImgSuccess(response) {
+  const heroSpaceImg = document.querySelector('.banner-img');
+  const randomSpaceImg = Math.floor((Math.random() * response.hits.length));
+  if (!response || response.hits[randomSpaceImg].webformatURL === heroSpaceImg.style.backgroundImage) {
+    return heroSpaceImg.style.backgroundImage = 'url("images/default-hero-img.jpg")';
+  }
+  return heroSpaceImg.style.backgroundImage = "url(" + response.hits[randomSpaceImg].webformatURL + ")";
+}
+
+
+function handleGetHubbleImgError(error) {
+  console.log(error);
+}
+
+
 
 
 function renderNewPage(e) {
+
   if (e.target.dataset.queryId === currentPage) {
     return;
   }
 
-  modalOverlay.classList.remove('sideNav');
-  addCurrentPageClass(e);
   footerContainer.removeEventListener('click', renderNewPage, false);
+
+  sideModalOverlay.classList.remove('sideNav');
+  addCurrentPageClass(e);
   renderImage();
 
   let dataQueryId = e.target.getAttribute('data-query-id');
@@ -129,6 +171,7 @@ function renderNewPage(e) {
 
   loader.classList.remove('hidden');
   articlesContainer.innerHTML = '';
+
 }
 
 
@@ -171,42 +214,9 @@ function renderArticle(articleData) {
 
   loader.classList.add('hidden');
   footerContainer.addEventListener('click', renderNewPage);
-}
+  sideNavMobile.addEventListener('click', renderNewPage);
+  greetModal();
 
-
-function handleGetDataSuccess(response) {
-  renderArticle(response);
-}
-
-function handleGetDataError(error) {
-  console.log(error);
-}
-
-
-function renderImage() {
-  $.ajax({
-    async: true,
-    crossDomain: true,
-    url: "https://pixabay.com/api/?key=" + pixebayApiKey + "&per_page=50&q=astronomy&image_type=photo",
-    method: "GET",
-    success: handleGetHubbleImgSuccess,
-    error: handleGetHubbleImgError
-  })
-
-}
-
-function handleGetHubbleImgSuccess(response) {
-  const heroSpaceImg = document.querySelector('.banner-img');
-  const randomSpaceImg = Math.floor((Math.random() * response.hits.length));
-  if (!response || response.hits[randomSpaceImg].webformatURL === heroSpaceImg.style.backgroundImage) {
-    return heroSpaceImg.style.backgroundImage = 'url("images/default-hero-img.jpg")';
-  }
-  return heroSpaceImg.style.backgroundImage = "url(" + response.hits[randomSpaceImg].webformatURL + ")";
-}
-
-
-function handleGetHubbleImgError(error) {
-  console.log(error);
 }
 
 function addCurrentPageClass(e) {
@@ -217,6 +227,8 @@ function addCurrentPageClass(e) {
   for (let i = 0; i < icons.length; i++) {
     icons[i].classList.remove('on-current-page');
   }
+
+  const styleIconActive = ['astronomy', 'A.I discoveries', 'exoplanets', 'meteors'];
 
   if (e.target.dataset.queryId === 'astronomy') {
     astronautIcon.classList.add('on-current-page');
@@ -230,6 +242,17 @@ function addCurrentPageClass(e) {
     return;
   }
 }
+
+setTimeout(function () {
+  return footerContainer.addEventListener('click', renderNewPage);
+}, 4000);
+
+
+function greetModal() {
+  let modal = document.querySelector('.modal-overlay-greet');
+  modal.classList.add('hidden');
+}
+
 
 
 start();
