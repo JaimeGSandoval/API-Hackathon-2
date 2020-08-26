@@ -16,31 +16,32 @@
 
 <body>
 
-  <div class="modal-overlay position-fixed pl-3">
+  <div class="modal-overlay position-fixed">
     <i class="fas fa-times mobile-menu-close"></i>
-    <div class="mobile-menu-content d-flex flex-items-start flex-column  side-nav-mobile">
-      <p class="font-weight-bold text-decoration-none flex-nowrap side-nav-item" data-query-id="astrobiology">
-        ASTROBIOLOGY NEWS</p>
-      <p class="font-weight-bold text-decoration-none side-nav-item" data-query-id="quantum">QUANTUM PHYSICS</p>
-      <p class="font-weight-bold text-decoration-none side-nav-item" data-query-id="gravity">GRAVITY</p>
-      <p class="font-weight-bold text-decoration-none side-nav-item" data-query-id="seti">SETI</p>
-      <p class="font-weight-bold text-decoration-none side-nav-item" data-query-id="cern">CERN</p>
-      <p class="font-weight-bold text-decoration-none side-nav-item quantum-header" data-query-id="d-wave">QUANTUM
-        COMPUTING</p>
+    <div class="mobile-menu-content d-flex flex-items-start flex-column pl-3 side-nav-mobile">
+      <p class="font-weight-bold side-nav-item quantum-header" data-query-id="d-wave">
+        QUANTUM COMPUTING</p>
+      <p class="font-weight-bold side-nav-item" data-query-id="astrobiology">ASTROBIOLOGY</p>
+      <p class="font-weight-bold side-nav-item" data-query-id="gravity">GRAVITY</p>
+      <p class="font-weight-bold side-nav-item" data-query-id="seti">SETI</p>
+      <p class="font-weight-bold side-nav-item" data-query-id="cern">CERN</p>
+      <p class="font-weight-bold side-nav-item" data-query-id="quantum">QUANTUM
+        PHYSICS</p>
     </div>
 
-    <div class="mobile-menu-content d-flex flex-items-end flex-column">
-      <h2 class="font-weight-bold">MORE RESOURCES</h2>
-      <a href="https://www.nasa.gov/news/releases/latest/index.html" class="font-weight-bold text-decoration-none">NASA
+    <div class="mobile-menu-content d-flex flex-items-end flex-column pl-3">
+      <h2 class="font-weight-bold mb-4">MORE RESOURCES</h2>
+      <a href="https://www.nasa.gov/news/releases/latest/index.html"
+        class="font-weight-bold text-decoration-none mb-3">NASA
         NEWS</a>
-      <a href="https://www.space.com/" class="font-weight-bold text-decoration-none">SPACE.COM</a>
-      <a href="https://www.seti.org/" class="font-weight-bold text-decoration-none">SETI.ORG</a>
+      <a href="https://www.space.com/" class="font-weight-bold text-decoration-none mb-3">SPACE.COM</a>
+      <a href="https://www.seti.org/" class="font-weight-bold text-decoration-none mb-3">SETI.ORG</a>
 
     </div>
 
   </div>
   <header class="top-fixed-nav text-center position-fixed d-flex align-items-center justify-content-center">
-    <i class="fas fa-bars mobile-menu-icon"></i>
+    <i class="fas fa-bars mobile-menu-icon position-absolute"></i>
     <h3 class="top-nav-title"></h3>
   </header>
 
@@ -48,31 +49,30 @@
 
   <div class="container mt-4">
     <div id="loader" class="loader"></div>
-    <section class="articles-container position-relative pl-2">
+    <section class="articles-container position-relative pl-1">
 
 
     </section>
   </div>
 
-  <footer class="footer-nav position-fixed d-flex justify-content-between pt-1 px-2">
-    <div id="astronomy" data-query-id="astronomy" class="foot-box bottom-nav-icon-box text-center pl-3 mt-2">
+  <footer class="footer-nav align-items-center position-fixed d-flex justify-content-between px-2">
+    <div id="astronomy" data-query-id="astronomy" class="foot-box bottom-nav-icon-box text-center pt-2">
       <i class="fas fa-user-astronaut icons" data-query-id="astronomy"></i>
       <p class="mb-0 pt-1" data-query-id="astronomy">News</p>
     </div>
     </div>
 
-    <div id="discoveries" data-query-id="A.I. discoveries"
-      class="foot-box bottom-nav-icon-box text-center pl-2 mt-2 ml-1">
+    <div id="discoveries" data-query-id="A.I. discoveries" class="foot-box bottom-nav-icon-box text-center pt-2">
       <i class="fas fa-newspaper icons" data-query-id="A.I. discoveries"></i>
       <p class="mb-0 pt-1" data-query-id="A.I. discoveries">A.I. Discoveries</p>
     </div>
 
-    <div id="exoplanets" data-query-id="exoplanets" class="foot-box bottom-nav-icon-box text-center pl-2 mt-2">
+    <div id="exoplanets" data-query-id="exoplanets" class="foot-box bottom-nav-icon-box text-center pt-2">
       <i class="fas fa-globe icons" data-query-id="exoplanets"></i>
       <p class="mb-0 pt-1" data-query-id="exoplanets">Exoplanets</p>
     </div>
 
-    <div id="meteors" data-query-id="meteors" class="foot-box bottom-nav-icon-box text-center pl-2 mt-2">
+    <div id="meteors" data-query-id="meteors" class="foot-box bottom-nav-icon-box text-center pt-2">
       <i class="fas fa-meteor icons" data-query-id="meteors"></i>
       <p class="mb-0 pt-1" data-query-id="meteors">Meteors</p>
     </div>

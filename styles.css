@@ -13,11 +13,9 @@ h2 {
 
 .article-section-title {
   color: rgb(104, 103, 103);
-  font-weight: bold;
 }
 
 .mobile-menu-icon {
-  position: absolute;
   left: 1.5rem;
   top: 1.2rem;
   font-size: 2.6rem;
@@ -31,6 +29,11 @@ h2 {
   background-color: #000;
   transition: 0.3s;
   overflow-x: hidden;
+  margin-top: 4rem;
+}
+
+.mobile-menu-content {
+  margin-top: 2.5rem;
 }
 
 .mobile-menu-content:nth-of-type(2) {
@@ -42,7 +45,6 @@ h2 {
   color: #fff;
   font-size: 2rem;
   transition: 0.3s;
-  line-height: 4rem;
   width: 23rem;
 }
 
@@ -79,7 +81,6 @@ h2 {
 
 .article-box {
   border-bottom: 1px solid gray;
-  text-decoration: none;
 }
 
 .article-title {
@@ -91,15 +92,13 @@ h2 {
 }
 
 .article-description {
-  font-size: 2rem;
+  font-size: 1.7rem;
   color: rgb(114, 114, 114);
   font-weight: 600;
-  text-decoration: none;
 }
 
 .article-published-date {
-  color: rgb(104, 103, 103);
-  font-size: 1.8rem;
+  font-size: 1.5rem;
 }
 
 .quantum-font {
@@ -115,7 +114,6 @@ h2 {
   width: 100%;
   background-color: #222;
   color: #fff;
-  align-items: center;
 }
 
 .bottom-nav-icon-box p {
@@ -157,6 +155,7 @@ h2 {
 .sideNav {
   width: 250px;
 }
+
 @media only screen and (orientation: landscape) {
   .banner-img {
     height: 44vh;
@@ -177,11 +176,7 @@ h2 {
   }
 
   .article-description {
-    font-size: 2.2rem;
-  }
-
-  .mobile-menu-content {
-    margin-top: 6rem;
+    font-size: 2rem;
   }
 
   .quantum-font {
@@ -192,6 +187,10 @@ h2 {
 @media screen and (min-width: 414px) {
   .bottom-nav-icon-box p {
     font-size: 1.9rem;
+  }
+
+  .article-published-date {
+    font-size: 1.8rem;
   }
 }
 

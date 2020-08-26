@@ -145,22 +145,22 @@ function renderArticle(articleData) {
     const d = new Date(articleData.value[i].datePublished);
 
     articleSectionTitle.textContent = "ARTICLE";
-    articleSectionTitle.classList.add('article-section-title', 'mt-5');
-    articleBox.classList.add('article-box', 'mt-3');
+    articleSectionTitle.classList.add('article-section-title', 'mt-5', 'font-weight-bold');
+    articleBox.classList.add('article-box', 'mt-2', 'text-decoration-none', 'pr-1');
 
     articleUrl.setAttribute('href', articleData.value[i].url);
-    articleUrl.classList.add('article-headline');
+    articleUrl.classList.add('article-headline', 'pb-5');
 
     articleTitle.classList.add('article-title', 'font-weight-bold', 'text-left', 'mt-3');
     articleTitle.textContent = articleData.value[i].title.replace(/(<([^>]+)>)/ig, '');
 
-    articleDescription.classList.add('article-description', 'my-3');
+    articleDescription.classList.add('article-description', 'mb-3', 'mt-4', 'text-decoration-none');
     articleDescription.textContent = articleData.value[i].description.replace(/(<([^>]+)>)/ig, '');
 
     articleProvider.classList.add('text-uppercase');
     articleProvider.textContent = ' - ' + articleData.value[i].provider.name;
 
-    articleDate.classList.add('article-published-date', 'font-weight-bold', 'my-5');
+    articleDate.classList.add('article-published-date', 'font-weight-bold', 'mb-5');
     articleDate.textContent = d;
 
     articleDescription.appendChild(articleProvider);
