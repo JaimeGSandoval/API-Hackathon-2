@@ -21,19 +21,56 @@ h2 {
   width: 100%;
   z-index: 10;
   background-color: #000;
-  transition: 0.2s all ease-out;
+  transition: 0.5s all ease-out;
 }
 .modal-greet {
-  width: 40%;
-  height: 400px;
+  width: 100%;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  animation: fadeIn 1.5s linear forwards;
+  overflow: hidden;
 }
 
 .fade-in-text {
   color: #fff;
   font-weight: bold;
-  font-size: 3rem;
+  font-size: 5rem;
   display: block;
+  backface-visibility: hidden;
+}
+
+.loading-text {
+  color: #fff;
+  font-size: 1.8rem;
+}
+
+@keyframes fadeIn {
+  0% {
+    margin-top: -6rem;
+    opacity: 0;
+  }
+
+  25% {
+    margin-top: -3rem;
+    opacity: 0.2;
+  }
+
+  50% {
+    margin-top: -2rem;
+    opacity: 0.5;
+  }
+
+  75% {
+    margin-top: -1rem;
+    opacity: 0.7;
+  }
+  100% {
+    margin-top: 0;
+    opacity: 1;
+  }
 }
 .article-section-title {
   color: rgb(104, 103, 103);

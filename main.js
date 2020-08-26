@@ -10,21 +10,8 @@ let headerTitle = document.querySelector('.top-nav-title');
 let currentPage = null;
 let selectedUrl = null;
 
-// footerContainer.addEventListener('click', renderNewPage);
 sideNavMobile.addEventListener('click', renderNewPage);
-
-
-function sideNavClass() {
-  if (sideModalOverlay.classList.contains('sideNav')) {
-    sideModalOverlay.classList.remove('sideNav');
-  } else {
-    sideModalOverlay.classList.add('sideNav');
-  }
-}
-
 mobileMenuIcon.addEventListener('click', sideNavClass);
-
-
 
 
 const urls = {
@@ -65,7 +52,6 @@ const headerTitles = {
 
 
 
-
 function start() {
   renderImage();
   currentPage = "astronomy";
@@ -88,48 +74,6 @@ function start() {
   headerTitle.textContent = 'Astronomy News';
 }
 
-function handleGetDataSuccess(response) {
-  renderArticle(response);
-}
-
-function handleGetDataError(error) {
-  console.log(error);
-}
-
-
-
-
-
-function renderImage() {
-  $.ajax({
-    async: true,
-    crossDomain: true,
-    url: "https://pixabay.com/api/?key=" + pixebayApiKey + "&per_page=50&q=astronomy&image_type=photo",
-    method: "GET",
-    success: handleGetHubbleImgSuccess,
-    error: handleGetHubbleImgError
-  })
-
-
-}
-
-function handleGetHubbleImgSuccess(response) {
-  const heroSpaceImg = document.querySelector('.banner-img');
-  const randomSpaceImg = Math.floor((Math.random() * response.hits.length));
-  if (!response || response.hits[randomSpaceImg].webformatURL === heroSpaceImg.style.backgroundImage) {
-    return heroSpaceImg.style.backgroundImage = 'url("images/default-hero-img.jpg")';
-  }
-  return heroSpaceImg.style.backgroundImage = "url(" + response.hits[randomSpaceImg].webformatURL + ")";
-}
-
-
-function handleGetHubbleImgError(error) {
-  console.log(error);
-}
-
-
-
-
 function renderNewPage(e) {
 
   if (e.target.dataset.queryId === currentPage) {
@@ -137,6 +81,7 @@ function renderNewPage(e) {
   }
 
   footerContainer.removeEventListener('click', renderNewPage, false);
+  sideNavMobile.removeEventListener('click', renderNewPage, false);
 
   sideModalOverlay.classList.remove('sideNav');
   addCurrentPageClass(e);
@@ -145,8 +90,6 @@ function renderNewPage(e) {
   let dataQueryId = e.target.getAttribute('data-query-id');
   let title = e.target.dataset.queryId;
   currentPage = dataQueryId;
-
-
 
   selectedUrl = urls[dataQueryId];
 
@@ -175,6 +118,45 @@ function renderNewPage(e) {
 }
 
 
+function handleGetDataSuccess(response) {
+  renderArticle(response);
+}
+
+function handleGetDataError(error) {
+  sideNavMobile.addEventListener('click', renderNewPage);
+  footerContainer.addEventListener('click', renderNewPage);
+  loader.classList.add('hidden');
+  console.log(error);
+}
+
+
+function renderImage() {
+  $.ajax({
+    async: true,
+    crossDomain: true,
+    url: "https://pixabay.com/api/?key=" + pixebayApiKey + "&per_page=50&q=astronomy&image_type=photo",
+    method: "GET",
+    success: handleGetHubbleImgSuccess,
+    error: handleGetHubbleImgError
+  })
+}
+
+function handleGetHubbleImgSuccess(response) {
+  const heroSpaceImg = document.querySelector('.banner-img');
+  const randomSpaceImg = Math.floor((Math.random() * response.hits.length));
+  if (!response || response.hits[randomSpaceImg].webformatURL === heroSpaceImg.style.backgroundImage) {
+    return heroSpaceImg.style.backgroundImage = 'url("images/default-hero-img.jpg")';
+  }
+  return heroSpaceImg.style.backgroundImage = "url(" + response.hits[randomSpaceImg].webformatURL + ")";
+}
+
+
+function handleGetHubbleImgError(error) {
+  console.log(error);
+}
+
+
+
 function renderArticle(articleData) {
 
   for (let i = 0; i < articleData.value.length; i++) {
@@ -189,7 +171,7 @@ function renderArticle(articleData) {
 
     articleSectionTitle.textContent = "ARTICLE";
     articleSectionTitle.classList.add('article-section-title', 'mt-5', 'font-weight-bold');
-    articleBox.classList.add('article-box', 'mt-2', 'text-decoration-none', 'pr-1');
+    articleBox.classList.add('article-box', 'mt-2', 'text-decoration-none');
 
     articleUrl.setAttribute('href', articleData.value[i].url);
     articleUrl.classList.add('article-headline', 'pb-5');
@@ -216,8 +198,8 @@ function renderArticle(articleData) {
   footerContainer.addEventListener('click', renderNewPage);
   sideNavMobile.addEventListener('click', renderNewPage);
   greetModal();
-
 }
+
 
 function addCurrentPageClass(e) {
   const newsPaperIcon = document.querySelector('.fa-newspaper');
@@ -227,8 +209,6 @@ function addCurrentPageClass(e) {
   for (let i = 0; i < icons.length; i++) {
     icons[i].classList.remove('on-current-page');
   }
-
-  const styleIconActive = ['astronomy', 'A.I discoveries', 'exoplanets', 'meteors'];
 
   if (e.target.dataset.queryId === 'astronomy') {
     astronautIcon.classList.add('on-current-page');
@@ -243,6 +223,7 @@ function addCurrentPageClass(e) {
   }
 }
 
+
 setTimeout(function () {
   return footerContainer.addEventListener('click', renderNewPage);
 }, 4000);
@@ -253,6 +234,13 @@ function greetModal() {
   modal.classList.add('hidden');
 }
 
+function sideNavClass() {
+  if (sideModalOverlay.classList.contains('sideNav')) {
+    sideModalOverlay.classList.remove('sideNav');
+  } else {
+    sideModalOverlay.classList.add('sideNav');
+  }
+}
 
 
 start();
