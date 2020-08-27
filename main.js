@@ -14,6 +14,9 @@ sideNavMobile.addEventListener('click', renderNewPage);
 mobileMenuIcon.addEventListener('click', sideNavClass);
 
 
+
+
+
 const urls = {
   'astronomy': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=new%20astronomy%20cosmology%20news%20articles2020&safeSearch=false",
 
