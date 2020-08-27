@@ -19,7 +19,7 @@ const urls = {
 
   'A.I. discoveries': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=AI%20artificial%20intelligence%20articles2020&safeSearch=false",
 
-  'exoplanets': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=exoplanets2020%20NASA%20plantetary%20science%20nasa%20seti%20articles2020&safeSearch=false",
+  'exoplanets': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=exoplanets2020%20NASA%20plantetary%20science%20seti%20articles2020&safeSearch=false",
 
   'meteors': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=meteor%20showers2020%20articles2020&safeSearch=false",
 
@@ -126,6 +126,12 @@ function handleGetDataError(error) {
   sideNavMobile.addEventListener('click', renderNewPage);
   footerContainer.addEventListener('click', renderNewPage);
   loader.classList.add('hidden');
+
+  if (error) {
+    console.log('Server Error');
+    loader.classList.add('hidden');
+
+  }
   console.log(error);
 }
 
