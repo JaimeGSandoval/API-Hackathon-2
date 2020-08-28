@@ -89,8 +89,8 @@ function renderNewPage(e) {
 
   let dataQueryId = e.target.getAttribute('data-query-id');
   let title = e.target.dataset.queryId;
-  currentPage = dataQueryId;
 
+  currentPage = dataQueryId;
   selectedUrl = urls[dataQueryId];
 
   $.ajax({
