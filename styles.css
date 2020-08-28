@@ -195,6 +195,7 @@ h2 {
 
 .foot-box {
   cursor: pointer;
+  padding: 7px 5px 0 5px;
 }
 
 .loader {
@@ -254,6 +255,10 @@ h2 {
 
   .loading-text {
     font-size: 2.5rem;
+  }
+
+  .foot-box {
+    padding: 7px 7px 0 7px;
   }
 }
 
