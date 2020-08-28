@@ -44,7 +44,15 @@ h2 {
 
 .loading-text {
   color: #fff;
-  font-size: 1.8rem;
+  font-size: 2rem;
+}
+
+.error-text {
+  color: black;
+  margin: auto;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2.5rem;
 }
 
 @keyframes fadeIn {
@@ -109,8 +117,11 @@ h2 {
   width: 23rem;
 }
 
-.side-nav-item {
+.mobile-menu-content .side-nav-item {
   cursor: pointer;
+
+  padding: 10px 0;
+  margin-bottom: -10px;
 }
 
 .top-fixed-nav {
@@ -175,6 +186,7 @@ h2 {
   width: 100%;
   background-color: #222;
   color: #fff;
+  padding: 0 0.5rem 0 0.5rem;
 }
 
 .bottom-nav-icon-box p {
@@ -228,10 +240,6 @@ h2 {
     font-size: 1.7rem;
   }
 
-  .icons {
-    font-size: 4rem;
-  }
-
   .article-title {
     font-size: 2.7rem;
   }
@@ -241,6 +249,10 @@ h2 {
   }
 
   .quantum-font {
+    font-size: 2.5rem;
+  }
+
+  .loading-text {
     font-size: 2.5rem;
   }
 }
@@ -256,6 +268,9 @@ h2 {
 }
 
 @media screen and (min-width: 768px) {
+  .icons {
+    font-size: 4rem;
+  }
   .article-title {
     font-size: 3rem;
     margin-top: 2rem;
@@ -271,5 +286,17 @@ h2 {
 
   .top-nav-title {
     font-size: 3rem;
+  }
+
+  .footer-nav {
+    padding: 0 2rem 0 2rem;
+  }
+
+  .loading-text {
+    font-size: 3rem;
+  }
+
+  .fade-in-text {
+    font-size: 7rem;
   }
 }

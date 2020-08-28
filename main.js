@@ -18,27 +18,28 @@ mobileMenuIcon.addEventListener('click', sideNavClass);
 
 
 const urls = {
-  'astronomy': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=new%20astronomy%20cosmology%20news%20articles2020&safeSearch=false",
+  'astronomy': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=new%20astronomy%20cosmology%20news%20articles2020&safeSearch=false",
 
-  'A.I. discoveries': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=AI%20artificial%20intelligence%20articles2020&safeSearch=false",
+  'A.I. discoveries': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=AI%20artificial%20intelligence%20articles2020&safeSearch=false",
 
-  'exoplanets': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=exoplanets2020%20NASA%20plantetary%20science%20nasa%20seti%20articles2020&safeSearch=false",
+  'exoplanets': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=exoplanets2020%20NASA%20plantetary%20science%20seti%20articles2020&safeSearch=false",
 
-  'meteors': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=meteor%20showers2020%20articles2020&safeSearch=false",
+  'meteors': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=meteor%20showers2020%20articles2020&safeSearch=false",
 
-  "astrobiology": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=astrobiology%20news2020%20articles2020&safeSearch=false",
+  "astrobiology": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=astrobiology%20news2020%20articles2020&safeSearch=false",
 
-  "quantum": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=quantum%20physics%20mechanics%20news2020%20articles2020&safeSearch=false",
+  "quantum": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=quantum%20physics%20mechanics%20news2020%20articles2020&safeSearch=false",
 
-  "gravity": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=gravity%20physics%20waves%20science%20news2020%20articles2020&safeSearch=false",
+  "gravity": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=gravity%20physics%20waves%20science%20news2020%20articles2020&safeSearch=false",
 
-  'seti': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=SETI%20physics%20astrobiology%20exoplanets%20seti%20org%20%20news2020%20articles2020&safeSearch=false",
+  'seti': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=SETI%20physics%20astrobiology%20exoplanets%20seti%20org%30%20news2020%20articles2020&safeSearch=false",
 
-  "cern": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=CERN%20physics%20particle%20collider%20hydron%20news2020%20articles2020&safeSearch=false",
+  "cern": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=CERN%20physics%20particle%20collider%20hydron%20news2020%20articles2020&safeSearch=false",
 
-  "d-wave": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=D-Wave%20quantum%20computing%20cern%20news2020%20articles2020&safeSearch=false"
+  "d-wave": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=D-Wave%20quantum%20computing%20cern%20news2020%20articles2020&safeSearch=false"
 
 }
+
 
 const headerTitles = {
   "astronomy": "Astronomy News",
@@ -53,12 +54,28 @@ const headerTitles = {
   "d-wave": "Quantum Computing"
 }
 
+var month = [];
+month[0] = "Jan";
+month[1] = "Feb";
+month[2] = "Mar";
+month[3] = "Apr";
+month[4] = "May";
+month[5] = "Jun";
+month[6] = "Jul";
+month[7] = "Aug";
+month[8] = "Sept";
+month[9] = "Oct";
+month[10] = "Nov";
+month[11] = "Dec";
+
+
+
 
 
 function start() {
   renderImage();
   currentPage = "astronomy";
-  selectedUrl = "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=new%20astronomy%20cosmology%20news%articles%202020&safeSearch=false";
+  selectedUrl = "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=new%20astronomy%20cosmology%20news%articles%202020&safeSearch=false";
   astronautIcon.classList.add('on-current-page');
 
   $.ajax({
@@ -77,8 +94,8 @@ function start() {
   headerTitle.textContent = 'Astronomy News';
 }
 
-function renderNewPage(e) {
 
+function renderNewPage(e) {
   if (e.target.dataset.queryId === currentPage) {
     return;
   }
@@ -92,8 +109,9 @@ function renderNewPage(e) {
 
   let dataQueryId = e.target.getAttribute('data-query-id');
   let title = e.target.dataset.queryId;
-  currentPage = dataQueryId;
 
+
+  currentPage = dataQueryId;
   selectedUrl = urls[dataQueryId];
 
   $.ajax({
@@ -123,11 +141,16 @@ function renderNewPage(e) {
 
 function handleGetDataSuccess(response) {
   renderArticle(response);
+
 }
 
 function handleGetDataError(error) {
   sideNavMobile.addEventListener('click', renderNewPage);
   footerContainer.addEventListener('click', renderNewPage);
+  const errorText = document.createElement('h2');
+  errorText.textContent = "An Error has Occurred. Please try again.";
+  errorText.classList.add('error-text');
+  articlesContainer.append(errorText);
   loader.classList.add('hidden');
   console.log(error);
 }
@@ -160,6 +183,7 @@ function handleGetHubbleImgError(error) {
 
 
 
+
 function renderArticle(articleData) {
 
   for (let i = 0; i < articleData.value.length; i++) {
@@ -171,6 +195,13 @@ function renderArticle(articleData) {
     const articleProvider = document.createElement('span');
     const articleDate = document.createElement('p');
     const d = new Date(articleData.value[i].datePublished);
+
+    let minutes = d.getMinutes();
+    let hours = d.getHours();
+    let monthStr = month[d.getMonth()];
+    minutes = minutes > 9 ? minutes : '0' + minutes;
+    hours >= 12 ? minutes += 'PM' : minutes += 'AM'
+    hours = hours > 12 ? hours - 12 : hours;
 
     articleSectionTitle.textContent = "ARTICLE";
     articleSectionTitle.classList.add('article-section-title', 'mt-5', 'font-weight-bold');
@@ -189,7 +220,7 @@ function renderArticle(articleData) {
     articleProvider.textContent = ' - ' + articleData.value[i].provider.name;
 
     articleDate.classList.add('article-published-date', 'font-weight-bold', 'mb-5');
-    articleDate.textContent = d;
+    articleDate.textContent = `${monthStr} ${d.getDay()}, ${d.getFullYear()} ${hours}:${minutes}`;
 
     articleDescription.appendChild(articleProvider);
     articleBox.append(articleTitle, articleDescription, articleDate);
