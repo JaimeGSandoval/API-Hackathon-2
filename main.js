@@ -120,18 +120,15 @@ function renderNewPage(e) {
 
 function handleGetDataSuccess(response) {
   renderArticle(response);
+
 }
 
 function handleGetDataError(error) {
+  const errorText = document.querySelector('.error-text');
+  errorText.classList.remove('hidden');
   sideNavMobile.addEventListener('click', renderNewPage);
   footerContainer.addEventListener('click', renderNewPage);
   loader.classList.add('hidden');
-
-  if (error) {
-    console.log('Server Error');
-    loader.classList.add('hidden');
-
-  }
   console.log(error);
 }
 
