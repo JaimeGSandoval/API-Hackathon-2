@@ -49,6 +49,10 @@ h2 {
 
 .error-text {
   color: black;
+  margin: auto;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2.5rem;
 }
 
 @keyframes fadeIn {
@@ -113,8 +117,12 @@ h2 {
   width: 23rem;
 }
 
-.side-nav-item {
+.mobile-menu-content .side-nav-item {
   cursor: pointer;
+
+  padding: 10px 0;
+  background: blue;
+  margin-bottom: -13px;
 }
 
 .top-fixed-nav {
@@ -233,10 +241,6 @@ h2 {
     font-size: 1.7rem;
   }
 
-  .icons {
-    font-size: 4rem;
-  }
-
   .article-title {
     font-size: 2.7rem;
   }
@@ -265,6 +269,9 @@ h2 {
 }
 
 @media screen and (min-width: 768px) {
+  .icons {
+    font-size: 4rem;
+  }
   .article-title {
     font-size: 3rem;
     margin-top: 2rem;

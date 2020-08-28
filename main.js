@@ -77,8 +77,9 @@ function start() {
   headerTitle.textContent = 'Astronomy News';
 }
 
-function renderNewPage(e) {
 
+function renderNewPage(e) {
+  console.log(e.currentTarget)
   if (e.target.dataset.queryId === currentPage) {
     return;
   }
@@ -92,6 +93,7 @@ function renderNewPage(e) {
 
   let dataQueryId = e.target.getAttribute('data-query-id');
   let title = e.target.dataset.queryId;
+
 
   currentPage = dataQueryId;
   selectedUrl = urls[dataQueryId];
@@ -127,11 +129,13 @@ function handleGetDataSuccess(response) {
 }
 
 function handleGetDataError(error) {
-  const errorText = document.querySelector('.error-text');
-  errorText.classList.remove('hidden');
   sideNavMobile.addEventListener('click', renderNewPage);
   footerContainer.addEventListener('click', renderNewPage);
   loader.classList.add('hidden');
+  const errorText = document.createElement('h2');
+  errorText.textContent = "An Error has Occurred. Please try again.";
+  errorText.classList.add('error-text');
+  articlesContainer.append(errorText);
   console.log(error);
 }
 
