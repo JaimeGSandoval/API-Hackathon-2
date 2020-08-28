@@ -14,9 +14,6 @@ sideNavMobile.addEventListener('click', renderNewPage);
 mobileMenuIcon.addEventListener('click', sideNavClass);
 
 
-
-
-
 const urls = {
   'astronomy': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=new%20astronomy%20cosmology%20news%20articles2020&safeSearch=false",
 
@@ -24,7 +21,7 @@ const urls = {
 
   'exoplanets': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=exoplanets2020%20NASA%20plantetary%20science%20seti%20articles2020&safeSearch=false",
 
-  'meteors': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=meteor%20showers2020%20articles2020&safeSearch=false",
+  'meteors': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=meteor%20showers%20amsorg%20articles2020&safeSearch=false",
 
   "astrobiology": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=astrobiology%20news2020%20articles2020&safeSearch=false",
 
@@ -32,7 +29,7 @@ const urls = {
 
   "gravity": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=gravity%20physics%20waves%20science%20news2020%20articles2020&safeSearch=false",
 
-  'seti': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=SETI%20physics%20astrobiology%20exoplanets%20seti%20org%30%20news2020%20articles2020&safeSearch=false",
+  'seti': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=SETI%20physics%20exoplanets%20search%20Extraterrestrial %20life%20news2020%20articles2020&safeSearch=false",
 
   "cern": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=CERN%20physics%20particle%20collider%20hydron%20news2020%20articles2020&safeSearch=false",
 
@@ -67,9 +64,6 @@ month[8] = "Sept";
 month[9] = "Oct";
 month[10] = "Nov";
 month[11] = "Dec";
-
-
-
 
 
 function start() {
@@ -182,8 +176,6 @@ function handleGetHubbleImgError(error) {
 }
 
 
-
-
 function renderArticle(articleData) {
 
   for (let i = 0; i < articleData.value.length; i++) {
@@ -195,7 +187,6 @@ function renderArticle(articleData) {
     const articleProvider = document.createElement('span');
     const articleDate = document.createElement('p');
     const d = new Date(articleData.value[i].datePublished);
-
     let minutes = d.getMinutes();
     let hours = d.getHours();
     let monthStr = month[d.getMonth()];
@@ -220,7 +211,8 @@ function renderArticle(articleData) {
     articleProvider.textContent = ' - ' + articleData.value[i].provider.name;
 
     articleDate.classList.add('article-published-date', 'font-weight-bold', 'mb-5');
-    articleDate.textContent = `${monthStr} ${d.getDay()}, ${d.getFullYear()} ${hours}:${minutes}`;
+    articleDate.textContent = `${monthStr} ${d.getDate()}, ${d.getFullYear()} ${hours}:${minutes}`;
+
 
     articleDescription.appendChild(articleProvider);
     articleBox.append(articleTitle, articleDescription, articleDate);
@@ -256,7 +248,6 @@ function addCurrentPageClass(e) {
     return;
   }
 }
-
 
 setTimeout(function () {
   return footerContainer.addEventListener('click', renderNewPage);
