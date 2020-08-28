@@ -32,7 +32,7 @@ const urls = {
 
   "gravity": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=gravity%20physics%20waves%20science%20news2020%20articles2020&safeSearch=false",
 
-  'seti': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=SETI%20physics%20astrobiology%20exoplanets%20seti%20org%30%20news2020%20articles2020&safeSearch=false",
+  'seti': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=SETI%20physics%20exoplanets%20search%20Extraterrestrial %20life%20news2020%20articles2020&safeSearch=false",
 
   "cern": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=CERN%20physics%20particle%20collider%20hydron%20news2020%20articles2020&safeSearch=false",
 
