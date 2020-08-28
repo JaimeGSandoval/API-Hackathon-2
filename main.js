@@ -147,11 +147,11 @@ function handleGetDataSuccess(response) {
 function handleGetDataError(error) {
   sideNavMobile.addEventListener('click', renderNewPage);
   footerContainer.addEventListener('click', renderNewPage);
-  loader.classList.add('hidden');
   const errorText = document.createElement('h2');
   errorText.textContent = "An Error has Occurred. Please try again.";
   errorText.classList.add('error-text');
   articlesContainer.append(errorText);
+  loader.classList.add('hidden');
   console.log(error);
 }
 
