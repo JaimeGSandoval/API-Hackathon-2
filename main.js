@@ -53,6 +53,22 @@ const headerTitles = {
   "d-wave": "Quantum Computing"
 }
 
+var month = [];
+month[0] = "Jan";
+month[1] = "Feb";
+month[2] = "Mar";
+month[3] = "Apr";
+month[4] = "May";
+month[5] = "Jun";
+month[6] = "Jul";
+month[7] = "Aug";
+month[8] = "Sept";
+month[9] = "Oct";
+month[10] = "Nov";
+month[11] = "Dec";
+
+
+
 
 
 function start() {
@@ -79,7 +95,6 @@ function start() {
 
 
 function renderNewPage(e) {
-  console.log(e.currentTarget)
   if (e.target.dataset.queryId === currentPage) {
     return;
   }
@@ -167,6 +182,7 @@ function handleGetHubbleImgError(error) {
 
 
 
+
 function renderArticle(articleData) {
 
   for (let i = 0; i < articleData.value.length; i++) {
@@ -178,6 +194,13 @@ function renderArticle(articleData) {
     const articleProvider = document.createElement('span');
     const articleDate = document.createElement('p');
     const d = new Date(articleData.value[i].datePublished);
+
+    let minutes = d.getMinutes();
+    let hours = d.getHours();
+    let monthStr = month[d.getMonth()];
+    minutes = minutes > 9 ? minutes : '0' + minutes;
+    hours >= 12 ? minutes += 'PM' : minutes += 'AM'
+    hours = hours > 12 ? hours - 12 : hours;
 
     articleSectionTitle.textContent = "ARTICLE";
     articleSectionTitle.classList.add('article-section-title', 'mt-5', 'font-weight-bold');
@@ -196,7 +219,7 @@ function renderArticle(articleData) {
     articleProvider.textContent = ' - ' + articleData.value[i].provider.name;
 
     articleDate.classList.add('article-published-date', 'font-weight-bold', 'mb-5');
-    articleDate.textContent = d;
+    articleDate.textContent = `${monthStr} ${d.getDay()}, ${d.getFullYear()} ${hours}:${minutes}`;
 
     articleDescription.appendChild(articleProvider);
     articleBox.append(articleTitle, articleDescription, articleDate);
