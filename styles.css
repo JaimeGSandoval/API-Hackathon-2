@@ -44,7 +44,11 @@ h2 {
 
 .loading-text {
   color: #fff;
-  font-size: 1.8rem;
+  font-size: 2rem;
+}
+
+.error-text {
+  color: black;
 }
 
 @keyframes fadeIn {
@@ -175,6 +179,7 @@ h2 {
   width: 100%;
   background-color: #222;
   color: #fff;
+  padding: 0 0.5rem 0 0.5rem;
 }
 
 .bottom-nav-icon-box p {
@@ -243,6 +248,10 @@ h2 {
   .quantum-font {
     font-size: 2.5rem;
   }
+
+  .loading-text {
+    font-size: 2.5rem;
+  }
 }
 
 @media screen and (min-width: 414px) {
@@ -271,5 +280,17 @@ h2 {
 
   .top-nav-title {
     font-size: 3rem;
+  }
+
+  .footer-nav {
+    padding: 0 2rem 0 2rem;
+  }
+
+  .loading-text {
+    font-size: 3rem;
+  }
+
+  .fade-in-text {
+    font-size: 7rem;
   }
 }

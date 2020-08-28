@@ -22,7 +22,7 @@ const urls = {
 
   'A.I. discoveries': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=AI%20artificial%20intelligence%20articles2020&safeSearch=false",
 
-  'exoplanets': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=exoplanets2020%20NASA%20plantetary%20science%20nasa%20seti%20articles2020&safeSearch=false",
+  'exoplanets': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=exoplanets2020%20NASA%20plantetary%20science%20seti%20articles2020&safeSearch=false",
 
   'meteors': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=20&q=meteor%20showers2020%20articles2020&safeSearch=false",
 
@@ -92,8 +92,8 @@ function renderNewPage(e) {
 
   let dataQueryId = e.target.getAttribute('data-query-id');
   let title = e.target.dataset.queryId;
-  currentPage = dataQueryId;
 
+  currentPage = dataQueryId;
   selectedUrl = urls[dataQueryId];
 
   $.ajax({
@@ -123,9 +123,12 @@ function renderNewPage(e) {
 
 function handleGetDataSuccess(response) {
   renderArticle(response);
+
 }
 
 function handleGetDataError(error) {
+  const errorText = document.querySelector('.error-text');
+  errorText.classList.remove('hidden');
   sideNavMobile.addEventListener('click', renderNewPage);
   footerContainer.addEventListener('click', renderNewPage);
   loader.classList.add('hidden');
