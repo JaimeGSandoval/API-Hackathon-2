@@ -27,7 +27,7 @@ const urls = {
 
   "quantum": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=quantum%20physics%20mechanics%20news2020%20articles2020&safeSearch=false",
 
-  "gravity": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=gravity%20physics%20waves%20science%20news2020%20articles2020&safeSearch=false",
+  "gravity": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=physics%20news%20gravity%20universalforce%20science_articles2020&safeSearch=false",
 
   'seti': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=SETI%20physics%20exoplanets%20search%20Extraterrestrial %20life%20news2020%20articles2020&safeSearch=false",
 
@@ -199,6 +199,7 @@ function renderArticle(articleData) {
     articleBox.classList.add('article-box', 'mt-2', 'text-decoration-none');
 
     articleUrl.setAttribute('href', articleData.value[i].url);
+    articleUrl.setAttribute('target', "_blank")
     articleUrl.classList.add('article-headline', 'pb-5');
 
     articleTitle.classList.add('article-title', 'font-weight-bold', 'text-left', 'mt-3');
