@@ -12,7 +12,7 @@ An app that utilizes two APIs to bring the user the most recent articles focused
 
 ## Live Demo
 
-https://jaimegsandoval.github.io/today-in-science/
+Try the application Live at https://jaimegsandoval.github.io/today-in-science/
 
 ## Features
 
