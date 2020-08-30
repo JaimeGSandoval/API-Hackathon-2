@@ -94,7 +94,7 @@ function renderNewPage(e) {
     return;
   }
 
-  footerContainer.removeEventListener('click', renderNewPage, false);
+  footerContainer.removeEventListener('touchstart', renderNewPage, false);
   sideNavMobile.removeEventListener('click', renderNewPage, false);
 
   sideModalOverlay.classList.remove('sideNav');
@@ -140,7 +140,7 @@ function handleGetDataSuccess(response) {
 
 function handleGetDataError(error) {
   sideNavMobile.addEventListener('click', renderNewPage);
-  footerContainer.addEventListener('click', renderNewPage);
+  footerContainer.addEventListener('touchstart', renderNewPage);
   const errorText = document.createElement('h2');
   errorText.textContent = "An Error has Occurred. Please try again.";
   errorText.classList.add('error-text');
@@ -222,7 +222,7 @@ function renderArticle(articleData) {
   }
 
   loader.classList.add('hidden');
-  footerContainer.addEventListener('click', renderNewPage);
+  footerContainer.addEventListener('touchstart', renderNewPage);
   sideNavMobile.addEventListener('click', renderNewPage);
   greetModal();
 }
@@ -251,7 +251,7 @@ function addCurrentPageClass(e) {
 }
 
 setTimeout(function () {
-  return footerContainer.addEventListener('click', renderNewPage);
+  return footerContainer.addEventListener('touchstart', renderNewPage);
 }, 4000);
 
 
