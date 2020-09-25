@@ -69,7 +69,7 @@ month[11] = "Dec";
 function start() {
   renderImage();
   currentPage = "astronomy";
-  selectedUrl = "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=new%20astronomy%20cosmology%20news%articles%202020&safeSearch=false";
+  selectedUrl = "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=new%20astronomy%20cosmology%20news%articles%202020&safeSearch=false";
   astronautIcon.classList.add('on-current-page');
 
   $.ajax({
