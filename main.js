@@ -25,7 +25,7 @@ const urls = {
 
   "astrobiology": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=astrobiology%20news2020%20articles2020&safeSearch=false",
 
-  "quantum": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?autoCorrect=false&amp;pageNumber=1&apm;pageSize=30&amp;q=quantum2020%20physics%20mechanics%20news2020%20articles2020&amp;safeSearch=false",
+  "quantum": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=quantum2020%20physics%20mechanics%20news2020%20articles2020&;safeSearch=false",
 
   "gravity": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=physics%20news%20gravity%20universalforce%20science_articles2020&safeSearch=false",
 

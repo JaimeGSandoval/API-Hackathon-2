@@ -243,14 +243,15 @@ li {
 }
 
 .loader {
-  border: 16px solid #f3f3f3;
+  border: 7px solid #f3f3f3;
   border-radius: 50%;
-  border-top: 16px solid #3498db;
-  width: 9rem;
-  height: 9rem;
+  border-top: 7px solid #3498db;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
   background-color: black;
   margin: 12rem auto 0 auto;
-  animation: spin 1s linear infinite;
+  animation: spin 0.6s linear infinite;
 }
 
 @keyframes spin {
@@ -366,6 +367,10 @@ li {
 }
 
 @media screen and (min-width: 992px) {
+  .loader {
+    position: relative;
+    left: 2%;
+  }
   .footer-nav {
     position: static;
     display: none;
@@ -430,5 +435,17 @@ li {
     width: 18%;
     overflow: hidden;
     margin-top: 0;
+  }
+}
+
+@media screen and (min-width: 1700px) {
+  .loader {
+    left: 8%;
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  .loader {
+    left: 15%;
   }
 }
