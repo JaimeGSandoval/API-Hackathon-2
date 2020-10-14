@@ -85,7 +85,9 @@ function renderNewPage(e) {
   sideNavMobile.removeEventListener('click', renderNewPage, false);
 
   sideModalOverlay.classList.remove('sideNav');
-  addCurrentPageClass(e);
+  addCurrentPageClassFooter(e);
+  addCurrentPageClassTopNav(e);
+  addCurrentPageClassSideNav(e);
   renderImage();
 
   let dataQueryId = e.target.getAttribute('data-query-id');
@@ -225,7 +227,7 @@ function renderArticle(articleData) {
 }
 
 
-function addCurrentPageClass(e) {
+function addCurrentPageClassFooter(e) {
   const newsPaperIcon = document.querySelector('.fa-newspaper');
   const globeIcon = document.querySelector('.fa-globe');
   const meteorIcon = document.querySelector('.fa-meteor');
@@ -244,6 +246,58 @@ function addCurrentPageClass(e) {
     meteorIcon.classList.add('on-current-page');
   } else {
     return;
+  }
+}
+
+
+function addCurrentPageClassTopNav(e) {
+  const astronomyLink = document.querySelector('.top-nav-astronomy');
+  const AILink = document.querySelector('.top-nav-AI');
+  const exoLink = document.querySelector('.top-nav-exo');
+  const meteorLink = document.querySelector('.top-nav-meteor');
+  const topNavLinks = document.querySelectorAll('.top-nav-desktop-item');
+
+  for (let i = 0; i < topNavLinks.length; i++) {
+    topNavLinks[i].classList.remove('on-current-page');
+
+    if (e.target.dataset.queryId === 'astronomy') {
+      astronomyLink.classList.add('on-current-page');
+    } else if (e.target.dataset.queryId === 'A.I. discoveries') {
+      AILink.classList.add('on-current-page');
+    } else if (e.target.dataset.queryId === 'exoplanets') {
+      exoLink.classList.add('on-current-page');
+    } else if (e.target.dataset.queryId === 'meteors') {
+      meteorLink.classList.add('on-current-page');
+    }
+  }
+}
+
+
+function addCurrentPageClassSideNav(e) {
+  const quantumLink = document.querySelector('.quantum-header');
+  const astrobiologyLink = document.querySelector('.astrobiology-link');
+  const gravityLink = document.querySelector('.gravity-link');
+  const setiLink = document.querySelector('.seti-link');
+  const cernLink = document.querySelector('.cern-link');
+  const quantumPhyLink = document.querySelector('.quantum-link');
+  const sideNavLinks = document.querySelectorAll('.side-nav-item');
+
+  for (let i = 0; i < sideNavLinks.length; i++) {
+    sideNavLinks[i].classList.remove('on-current-page');
+
+    if (e.target.dataset.queryId === 'astrobiology') {
+      astrobiologyLink.classList.add('on-current-page');
+    } else if (e.target.dataset.queryId === 'gravity') {
+      gravityLink.classList.add('on-current-page');
+    } else if (e.target.dataset.queryId === 'seti') {
+      setiLink.classList.add('on-current-page');
+    } else if (e.target.dataset.queryId === 'd-wave') {
+      quantumLink.classList.add('on-current-page');
+    } else if (e.target.dataset.queryId === 'cern') {
+      cernLink.classList.add('on-current-page');
+    } else if (e.target.dataset.queryId === 'quantum') {
+      quantumPhyLink.classList.add('on-current-page');
+    }
   }
 }
 

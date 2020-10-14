@@ -119,8 +119,7 @@ li {
   outline: 0;
 }
 
-.mobile-menu-content p,
-.mobile-menu-content a {
+.mobile-menu-content {
   color: #fff;
   font-size: 1.5rem;
   transition: 0.3s;
@@ -129,7 +128,6 @@ li {
 
 .mobile-menu-content .side-nav-item {
   cursor: pointer;
-
   padding: 10px 0;
   margin-bottom: -10px;
 }
@@ -137,12 +135,20 @@ li {
 .mobile-menu-content p:hover,
 .mobile-menu-content a:hover {
   color: #3498db;
+  transition: 0.3s;
+}
+
+.mobile-menu-content a {
+  color: #fff;
 }
 
 .top-nav-desktop {
   display: none;
 }
 
+.top-nav-desktop-item {
+  color: #fff;
+}
 .top-fixed-nav {
   width: 100%;
   background-color: #000;
@@ -400,7 +406,6 @@ li {
 
   .top-nav-desktop-item {
     font-size: 1.6rem;
-    color: #fff;
     list-style: none;
     text-decoration: none;
   }
