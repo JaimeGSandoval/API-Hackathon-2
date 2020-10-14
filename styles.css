@@ -11,6 +11,10 @@ h2 {
   width: 20rem;
 }
 
+.article-url:hover {
+  text-decoration: none;
+}
+
 .modal-overlay-greet {
   position: fixed;
   top: 0;
@@ -29,9 +33,10 @@ h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: relative;
   animation: fadeIn 1.5s linear forwards;
   overflow: hidden;
+  bottom: 8%;
 }
 
 .fade-in-text {
@@ -110,6 +115,12 @@ h2 {
   margin-top: 4rem;
 }
 
+.mobile-menu-content:nth-of-type(2) h2 {
+  border-bottom: 2px solid #fff;
+  padding-bottom: 5px;
+  outline: 0;
+}
+
 .mobile-menu-content p,
 .mobile-menu-content a {
   color: #fff;
@@ -127,7 +138,7 @@ h2 {
 
 .top-fixed-nav {
   width: 100%;
-  background-color: #222;
+  background-color: #000;
   color: #fff;
   z-index: 3;
   height: 5.5rem;
@@ -154,6 +165,8 @@ h2 {
 
 .article-box {
   border-bottom: 1px solid gray;
+  text-decoration: none;
+  pointer-events: none;
 }
 
 .article-title {
@@ -161,6 +174,12 @@ h2 {
 }
 
 .article-headline {
+  color: #000;
+}
+
+.article-headline:hover {
+  text-decoration: underline;
+  text-decoration-color: rgb(114, 114, 114);
   color: #000;
 }
 
@@ -174,6 +193,10 @@ h2 {
   font-size: 1.5rem;
 }
 
+.article-published-date:hover {
+  color: #000;
+}
+
 .quantum-font {
   font-size: 2.2rem;
 }
@@ -185,10 +208,11 @@ h2 {
 .footer-nav {
   bottom: 0;
   width: 100%;
-  background-color: #222;
+  background-color: #000;
   color: #fff;
   padding: 0 0.5rem 0 0.5rem;
   z-index: 5;
+  position: fixed;
 }
 
 .bottom-nav-icon-box p {
@@ -230,6 +254,11 @@ h2 {
 
 .sideNav {
   width: 250px;
+}
+
+.mobile-menu-content p:hover,
+.mobile-menu-content a:hover {
+  color: #3498db;
 }
 
 @media only screen and (orientation: landscape) {
@@ -309,5 +338,33 @@ h2 {
 
   .fade-in-text {
     font-size: 7rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .footer-nav {
+    position: static;
+    display: none;
+  }
+
+  .side-modal-overlay {
+    width: 18%;
+    overflow: hidden;
+  }
+
+  .mobile-menu-icon {
+    display: none;
+  }
+
+  .desktop-styles {
+    margin-left: 260px;
+    margin-left: 20%;
+    overflow: hidden;
+    width: 80%;
+  }
+
+  .banner-img {
+    height: 60vh;
+    margin-left: 18%;
   }
 }

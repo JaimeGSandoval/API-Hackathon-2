@@ -186,8 +186,8 @@ function renderArticle(articleData) {
     articleBox.classList.add('article-box', 'mt-2', 'text-decoration-none');
 
     articleUrl.setAttribute('href', articleData.value[i].url);
-    articleUrl.setAttribute('target', "_blank")
-    articleUrl.classList.add('article-headline', 'pb-5');
+    articleUrl.setAttribute('target', "_blank");
+    articleUrl.classList.add('article-headline', 'pb-5', 'article-url');
 
     articleTitle.classList.add('article-title', 'font-weight-bold', 'text-left', 'mt-3');
     articleTitle.textContent = articleData.value[i].title.replace(/(<([^>]+)>)/ig, '');
