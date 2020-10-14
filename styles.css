@@ -11,8 +11,8 @@ h2 {
   width: 20rem;
 }
 
-.article-url:hover {
-  text-decoration: none;
+li {
+  list-style: none;
 }
 
 .modal-overlay-greet {
@@ -85,15 +85,6 @@ h2 {
     opacity: 1;
   }
 }
-.article-section-title {
-  color: rgb(104, 103, 103);
-}
-
-.mobile-menu-icon {
-  left: 1.5rem;
-  top: 1.2rem;
-  font-size: 2.6rem;
-}
 
 .side-modal-overlay {
   top: 0;
@@ -105,6 +96,12 @@ h2 {
   overflow-x: hidden;
   overflow-y: scroll;
   margin-top: 4rem;
+}
+
+.mobile-menu-icon {
+  left: 1.5rem;
+  top: 1.2rem;
+  font-size: 2.6rem;
 }
 
 .mobile-menu-content {
@@ -136,12 +133,23 @@ h2 {
   margin-bottom: -10px;
 }
 
+.mobile-menu-content p:hover,
+.mobile-menu-content a:hover {
+  color: #3498db;
+}
+
+.top-nav-desktop {
+  display: none;
+}
+
 .top-fixed-nav {
   width: 100%;
   background-color: #000;
   color: #fff;
   z-index: 3;
   height: 5.5rem;
+  position: fixed;
+  display: flex;
 }
 
 .top-nav-title {
@@ -155,6 +163,14 @@ h2 {
   background-repeat: no-repeat;
   background-size: cover;
   top: 4.1rem;
+}
+
+.article-url:hover {
+  text-decoration: none;
+}
+
+.article-section-title {
+  color: rgb(104, 103, 103);
 }
 
 .articles-container {
@@ -213,6 +229,7 @@ h2 {
   padding: 0 0.5rem 0 0.5rem;
   z-index: 5;
   position: fixed;
+  display: flex;
 }
 
 .bottom-nav-icon-box p {
@@ -256,9 +273,15 @@ h2 {
   width: 250px;
 }
 
-.mobile-menu-content p:hover,
-.mobile-menu-content a:hover {
+.nav-list-desktop li p:hover {
   color: #3498db;
+  cursor: pointer;
+  transition: 0.5s all ease-out;
+}
+
+.nav-list-desktop {
+  position: relative;
+  top: 7px;
 }
 
 @media only screen and (orientation: landscape) {
@@ -347,24 +370,64 @@ h2 {
     display: none;
   }
 
-  .side-modal-overlay {
-    width: 18%;
-    overflow: hidden;
+  .banner-img {
+    height: 60vh;
+    width: 82%;
+    margin-left: 18%;
+    top: 3.3rem;
   }
 
-  .mobile-menu-icon {
+  .top-fixed-nav {
+    position: static;
     display: none;
+  }
+
+  .top-nav-desktop {
+    position: fixed;
+    display: flex;
+    background-color: #000;
+    color: #fff;
+    width: 100%;
+    z-index: 3;
+    color: #fff;
+  }
+
+  .top-nav-desktop-item {
+    font-size: 1.6rem;
+    color: #fff;
+    list-style: none;
+    text-decoration: none;
   }
 
   .desktop-styles {
     margin-left: 260px;
-    margin-left: 20%;
+    margin-left: 19.1%;
     overflow: hidden;
     width: 80%;
   }
 
-  .banner-img {
-    height: 60vh;
-    margin-left: 18%;
+  .desktop-nav-title {
+    color: #fff;
+    font-size: 3rem;
+    position: relative;
+    bottom: 0.5rem;
+  }
+
+  .desktop-nav-title:hover {
+    color: #fff;
+    text-decoration: #3498db;
+  }
+
+  .mobile-menu-content {
+    margin-top: 6.5rem;
+  }
+  .mobile-menu-icon {
+    display: none;
+  }
+
+  .side-modal-overlay {
+    width: 18%;
+    overflow: hidden;
+    margin-top: 0;
   }
 }

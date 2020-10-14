@@ -6,6 +6,7 @@ const astronautIcon = document.querySelector('.fa-user-astronaut');
 const sideNavMobile = document.querySelector('.side-nav-mobile');
 const mobileMenuIcon = document.querySelector(".mobile-menu-icon");
 const sideModalOverlay = document.querySelector('.side-modal-overlay');
+const navLinksDesktop = document.querySelector('.nav-list-desktop');
 let headerTitle = document.querySelector('.top-nav-title');
 let currentPage = null;
 let selectedUrl = null;
@@ -211,6 +212,7 @@ function renderArticle(articleData) {
   loader.classList.add('hidden');
   footerContainer.addEventListener('click', renderNewPage);
   sideNavMobile.addEventListener('click', renderNewPage);
+  navLinksDesktop.addEventListener('click', renderNewPage);
   greetModal();
 }
 
