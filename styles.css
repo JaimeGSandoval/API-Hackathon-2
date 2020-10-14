@@ -11,6 +11,10 @@ h2 {
   width: 20rem;
 }
 
+li {
+  list-style: none;
+}
+
 .modal-overlay-greet {
   position: fixed;
   top: 0;
@@ -29,9 +33,10 @@ h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: relative;
   animation: fadeIn 1.5s linear forwards;
   overflow: hidden;
+  bottom: 8%;
 }
 
 .fade-in-text {
@@ -80,15 +85,6 @@ h2 {
     opacity: 1;
   }
 }
-.article-section-title {
-  color: rgb(104, 103, 103);
-}
-
-.mobile-menu-icon {
-  left: 1.5rem;
-  top: 1.2rem;
-  font-size: 2.6rem;
-}
 
 .side-modal-overlay {
   top: 0;
@@ -98,7 +94,15 @@ h2 {
   background-color: #000;
   transition: 0.3s;
   overflow-x: hidden;
+  overflow-y: scroll;
   margin-top: 4rem;
+}
+
+.mobile-menu-icon {
+  left: 1.5rem;
+  top: 1.2rem;
+  font-size: 2.6rem;
+  cursor: pointer;
 }
 
 .mobile-menu-content {
@@ -109,27 +113,50 @@ h2 {
   margin-top: 4rem;
 }
 
-.mobile-menu-content p,
-.mobile-menu-content a {
+.mobile-menu-content:nth-of-type(2) h2 {
+  border-bottom: 2px solid #fff;
+  padding-bottom: 5px;
+  outline: 0;
+}
+
+.mobile-menu-content {
   color: #fff;
-  font-size: 2rem;
+  font-size: 1.5rem;
   transition: 0.3s;
   width: 23rem;
 }
 
 .mobile-menu-content .side-nav-item {
   cursor: pointer;
-
   padding: 10px 0;
   margin-bottom: -10px;
 }
 
+.mobile-menu-content p:hover,
+.mobile-menu-content a:hover {
+  color: #3498db;
+  transition: 0.3s;
+}
+
+.mobile-menu-content a {
+  color: #fff;
+}
+
+.top-nav-desktop {
+  display: none;
+}
+
+.top-nav-desktop-item {
+  color: #fff;
+}
 .top-fixed-nav {
   width: 100%;
-  background-color: #222;
+  background-color: #000;
   color: #fff;
   z-index: 3;
   height: 5.5rem;
+  position: fixed;
+  display: flex;
 }
 
 .top-nav-title {
@@ -145,6 +172,14 @@ h2 {
   top: 4.1rem;
 }
 
+.article-url:hover {
+  text-decoration: none;
+}
+
+.article-section-title {
+  color: rgb(104, 103, 103);
+}
+
 .articles-container {
   overflow-x: hidden;
   top: 3rem;
@@ -153,6 +188,8 @@ h2 {
 
 .article-box {
   border-bottom: 1px solid gray;
+  text-decoration: none;
+  pointer-events: none;
 }
 
 .article-title {
@@ -160,6 +197,12 @@ h2 {
 }
 
 .article-headline {
+  color: #000;
+}
+
+.article-headline:hover {
+  text-decoration: underline;
+  text-decoration-color: rgb(114, 114, 114);
   color: #000;
 }
 
@@ -173,6 +216,10 @@ h2 {
   font-size: 1.5rem;
 }
 
+.article-published-date:hover {
+  color: #000;
+}
+
 .quantum-font {
   font-size: 2.2rem;
 }
@@ -184,10 +231,12 @@ h2 {
 .footer-nav {
   bottom: 0;
   width: 100%;
-  background-color: #222;
+  background-color: #000;
   color: #fff;
   padding: 0 0.5rem 0 0.5rem;
   z-index: 5;
+  position: fixed;
+  display: flex;
 }
 
 .bottom-nav-icon-box p {
@@ -200,14 +249,15 @@ h2 {
 }
 
 .loader {
-  border: 16px solid #f3f3f3;
+  border: 7px solid #f3f3f3;
   border-radius: 50%;
-  border-top: 16px solid #3498db;
-  width: 9rem;
-  height: 9rem;
+  border-top: 7px solid #3498db;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
   background-color: black;
   margin: 12rem auto 0 auto;
-  animation: spin 1s linear infinite;
+  animation: spin 0.6s linear infinite;
 }
 
 @keyframes spin {
@@ -231,9 +281,24 @@ h2 {
   width: 250px;
 }
 
+.nav-list-desktop li p:hover {
+  color: #3498db;
+  cursor: pointer;
+  transition: 0.5s all ease-out;
+}
+
+.nav-list-desktop {
+  position: relative;
+  top: 7px;
+}
+
 @media only screen and (orientation: landscape) {
   .banner-img {
     height: 44vh;
+  }
+
+  .mobile-menu-content:nth-of-type(2) {
+    margin-bottom: 13rem;
   }
 }
 
@@ -304,5 +369,88 @@ h2 {
 
   .fade-in-text {
     font-size: 7rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .loader {
+    position: relative;
+    left: 2%;
+  }
+  .footer-nav {
+    position: static;
+    display: none;
+  }
+
+  .banner-img {
+    height: 60vh;
+    width: 82%;
+    margin-left: 18%;
+    top: 3.3rem;
+  }
+
+  .top-fixed-nav {
+    position: static;
+    display: none;
+  }
+
+  .top-nav-desktop {
+    position: fixed;
+    display: flex;
+    background-color: #000;
+    color: #fff;
+    width: 100%;
+    z-index: 3;
+    color: #fff;
+  }
+
+  .top-nav-desktop-item {
+    font-size: 1.6rem;
+    list-style: none;
+    text-decoration: none;
+  }
+
+  .desktop-styles {
+    margin-left: 260px;
+    margin-left: 19.1%;
+    overflow: hidden;
+    width: 80%;
+  }
+
+  .desktop-nav-title {
+    color: #fff;
+    font-size: 3rem;
+    position: relative;
+    bottom: 0.5rem;
+  }
+
+  .desktop-nav-title:hover {
+    color: #fff;
+    text-decoration: #3498db;
+  }
+
+  .mobile-menu-content {
+    margin-top: 6.5rem;
+  }
+  .mobile-menu-icon {
+    display: none;
+  }
+
+  .side-modal-overlay {
+    width: 18%;
+    overflow: hidden;
+    margin-top: 0;
+  }
+}
+
+@media screen and (min-width: 1700px) {
+  .loader {
+    left: 8%;
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  .loader {
+    left: 15%;
   }
 }

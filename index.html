@@ -32,11 +32,11 @@
     <div class="mobile-menu-content d-flex flex-items-start flex-column pl-3 side-nav-mobile">
       <p class="font-weight-bold side-nav-item quantum-header" data-query-id="d-wave">
         QUANTUM COMPUTING</p>
-      <p class="font-weight-bold side-nav-item" data-query-id="astrobiology">ASTROBIOLOGY</p>
-      <p class="font-weight-bold side-nav-item" data-query-id="gravity">GRAVITY</p>
-      <p class="font-weight-bold side-nav-item" data-query-id="seti">SETI</p>
-      <p class="font-weight-bold side-nav-item" data-query-id="cern">CERN</p>
-      <p class="font-weight-bold side-nav-item" data-query-id="quantum">QUANTUM
+      <p class="font-weight-bold side-nav-item astrobiology-link" data-query-id="astrobiology">ASTROBIOLOGY</p>
+      <p class="font-weight-bold side-nav-item gravity-link" data-query-id="gravity">GRAVITY</p>
+      <p class="font-weight-bold side-nav-item seti-link" data-query-id="seti">SETI</p>
+      <p class="font-weight-bold side-nav-item cern-link" data-query-id="cern">CERN</p>
+      <p class="font-weight-bold side-nav-item quantum-link" data-query-id="quantum">QUANTUM
         PHYSICS</p>
     </div>
 
@@ -47,26 +47,51 @@
         NEWS</a>
       <a href="https://www.space.com/" class="font-weight-bold text-decoration-none mb-3" target="_blank">SPACE.COM</a>
       <a href="https://www.seti.org/" class="font-weight-bold text-decoration-none mb-3" target="_blank">SETI.ORG</a>
-
     </div>
-
   </div>
-  <header class="top-fixed-nav text-center position-fixed d-flex align-items-center justify-content-center">
+
+  <header class="top-fixed-nav text-center align-items-center justify-content-center">
     <i class="fas fa-bars mobile-menu-icon position-absolute"></i>
     <h3 class="top-nav-title"></h3>
   </header>
 
+  <header>
+    <nav class="top-nav-desktop align-items-center justify-content-between py-4">
+      <div class="pl-4">
+        <a class="desktop-nav-title font-weight-bold" href="#">Today in Science</a>
+      </div>
+      <div>
+        <ul class="nav-list-desktop d-flex px-5 align-items-center">
+          <li data-query-id="astronomy" class="top-nav-desktop-item">
+            <p class="top-nav-desktop-item px-4 font-weight-bold pt-0 top-nav-astronomy" data-query-id="astronomy">NEWS
+            </p>
+          </li>
+          <li data-query-id="A.I. discoveries" class="top-nav-desktop-item">
+            <p data-query-id="A.I. discoveries" class="top-nav-desktop-item px-4 font-weight-bold pt-0 top-nav-AI">
+              ARTIFICIAL
+              INTELLIGENCE</p>
+          </li>
+          <li data-query-id="exoplanets" class="top-nav-desktop-item">
+            <p data-query-id="exoplanets" class="top-nav-desktop-item px-4 font-weight-bold pt-0 top-nav-exo">EXOPLANETS
+            </p>
+          </li>
+          <li data-query-id="meteors" class="top-nav-desktop-item">
+            <p data-query-id="meteors" class="top-nav-desktop-item px-4 font-weight-bold pt-0 top-nav-meteor">METEORS
+            </p>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+  </header>
+
   <div class="banner-img position-relative"></div>
-
-  <div class="container mt-4">
+  <div class="container mt-4 desktop-styles">
     <div id="loader" class="loader"></div>
-    <section class="articles-container position-relative">
-
-
-    </section>
+    <section class="articles-container position-relative"></section>
   </div>
 
-  <footer class="footer-nav align-items-center position-fixed d-flex justify-content-between">
+  <footer class="footer-nav align-items-center justify-content-between">
     <div id="astronomy" data-query-id="astronomy" class="foot-box bottom-nav-icon-box text-center pt-2">
       <i class="fas fa-user-astronaut icons" data-query-id="astronomy"></i>
       <p class="mb-0 pt-1" data-query-id="astronomy">News</p>

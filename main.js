@@ -6,6 +6,7 @@ const astronautIcon = document.querySelector('.fa-user-astronaut');
 const sideNavMobile = document.querySelector('.side-nav-mobile');
 const mobileMenuIcon = document.querySelector(".mobile-menu-icon");
 const sideModalOverlay = document.querySelector('.side-modal-overlay');
+const navLinksDesktop = document.querySelector('.nav-list-desktop');
 let headerTitle = document.querySelector('.top-nav-title');
 let currentPage = null;
 let selectedUrl = null;
@@ -13,9 +14,8 @@ let selectedUrl = null;
 sideNavMobile.addEventListener('click', renderNewPage);
 mobileMenuIcon.addEventListener('click', sideNavClass);
 
-
 const urls = {
-  'astronomy': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=new%20astronomy%20cosmology%20news%20articles2020&safeSearch=false",
+  'astronomy': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=astronomy%20cosmology%20articles2020&safeSearch=false",
 
   'A.I. discoveries': "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=AI%20artificial%20intelligence%20articles2020&safeSearch=false",
 
@@ -25,7 +25,7 @@ const urls = {
 
   "astrobiology": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=astrobiology%20news2020%20articles2020&safeSearch=false",
 
-  "quantum": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=quantum%20physics%20mechanics%20news2020%20articles2020&safeSearch=false",
+  "quantum": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=quantum2020%20physics%20mechanics%20news2020%20articles2020&;safeSearch=false",
 
   "gravity": "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=physics%20news%20gravity%20universalforce%20science_articles2020&safeSearch=false",
 
@@ -51,25 +51,12 @@ const headerTitles = {
   "d-wave": "Quantum Computing"
 }
 
-var month = [];
-month[0] = "Jan";
-month[1] = "Feb";
-month[2] = "Mar";
-month[3] = "Apr";
-month[4] = "May";
-month[5] = "Jun";
-month[6] = "Jul";
-month[7] = "Aug";
-month[8] = "Sept";
-month[9] = "Oct";
-month[10] = "Nov";
-month[11] = "Dec";
-
+var month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
 
 function start() {
   renderImage();
   currentPage = "astronomy";
-  selectedUrl = "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=new%20astronomy%20cosmology%20news%articles%202020&safeSearch=false";
+  selectedUrl = "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?autoCorrect=false&pageNumber=1&pageSize=30&q=astronomy%20cosmology%20articles%202020&safeSearch=false";
   astronautIcon.classList.add('on-current-page');
 
   $.ajax({
@@ -98,7 +85,9 @@ function renderNewPage(e) {
   sideNavMobile.removeEventListener('click', renderNewPage, false);
 
   sideModalOverlay.classList.remove('sideNav');
-  addCurrentPageClass(e);
+  addCurrentPageClassFooter(e);
+  addCurrentPageClassTopNav(e);
+  addCurrentPageClassSideNav(e);
   renderImage();
 
   let dataQueryId = e.target.getAttribute('data-query-id');
@@ -134,6 +123,7 @@ function renderNewPage(e) {
 
 
 function handleGetDataSuccess(response) {
+  console.log(response)
   renderArticle(response);
 
 }
@@ -179,6 +169,11 @@ function handleGetHubbleImgError(error) {
 function renderArticle(articleData) {
 
   for (let i = 0; i < articleData.value.length; i++) {
+
+    if (!articleData.value[i]) {
+      return;
+    }
+
     const articleSectionTitle = document.createElement('h2');
     const articleBox = document.createElement('div');
     const articleUrl = document.createElement('a');
@@ -187,48 +182,52 @@ function renderArticle(articleData) {
     const articleProvider = document.createElement('span');
     const articleDate = document.createElement('p');
     const d = new Date(articleData.value[i].datePublished);
-    let minutes = d.getMinutes();
-    let hours = d.getHours();
-    let monthStr = month[d.getMonth()];
-    minutes = minutes > 9 ? minutes : '0' + minutes;
-    hours >= 12 ? minutes += 'PM' : minutes += 'AM'
-    hours = hours > 12 ? hours - 12 : hours;
+    if (d.getFullYear() >= 2019) {
 
-    articleSectionTitle.textContent = "ARTICLE";
-    articleSectionTitle.classList.add('article-section-title', 'mt-5', 'font-weight-bold');
-    articleBox.classList.add('article-box', 'mt-2', 'text-decoration-none');
+      let minutes = d.getMinutes();
+      let hours = d.getHours();
+      let monthStr = month[d.getMonth()];
+      minutes = minutes > 9 ? minutes : '0' + minutes;
+      hours >= 12 ? minutes += 'PM' : minutes += 'AM'
+      hours = hours > 12 ? hours - 12 : hours;
 
-    articleUrl.setAttribute('href', articleData.value[i].url);
-    articleUrl.setAttribute('target', "_blank")
-    articleUrl.classList.add('article-headline', 'pb-5');
+      articleSectionTitle.textContent = "ARTICLE";
+      articleSectionTitle.classList.add('article-section-title', 'mt-5', 'font-weight-bold');
+      articleBox.classList.add('article-box', 'mt-2', 'text-decoration-none');
 
-    articleTitle.classList.add('article-title', 'font-weight-bold', 'text-left', 'mt-3');
-    articleTitle.textContent = articleData.value[i].title.replace(/(<([^>]+)>)/ig, '');
+      articleUrl.setAttribute('href', articleData.value[i].url);
+      articleUrl.setAttribute('target', "_blank");
+      articleUrl.classList.add('article-headline', 'pb-5', 'article-url');
 
-    articleDescription.classList.add('article-description', 'mb-3', 'mt-4', 'text-decoration-none');
-    articleDescription.textContent = articleData.value[i].description.replace(/(<([^>]+)>)/ig, '');
+      articleTitle.classList.add('article-title', 'font-weight-bold', 'text-left', 'mt-3');
+      articleTitle.textContent = articleData.value[i].title.replace(/(<([^>]+)>)/ig, '');
 
-    articleProvider.classList.add('text-uppercase');
-    articleProvider.textContent = ' - ' + articleData.value[i].provider.name;
+      articleDescription.classList.add('article-description', 'mb-3', 'mt-4', 'text-decoration-none');
+      articleDescription.textContent = articleData.value[i].description.replace(/(<([^>]+)>)/ig, '');
 
-    articleDate.classList.add('article-published-date', 'font-weight-bold', 'mb-5');
-    articleDate.textContent = `${monthStr} ${d.getDate()}, ${d.getFullYear()} ${hours}:${minutes}`;
+      articleProvider.classList.add('text-uppercase');
+      articleProvider.textContent = ' - ' + articleData.value[i].provider.name;
+
+      articleDate.classList.add('article-published-date', 'font-weight-bold', 'mb-5');
+      articleDate.textContent = `${monthStr} ${d.getDate()}, ${d.getFullYear()} ${hours}:${minutes}`;
 
 
-    articleDescription.appendChild(articleProvider);
-    articleBox.append(articleTitle, articleDescription, articleDate);
-    articleUrl.appendChild(articleBox);
-    articlesContainer.append(articleSectionTitle, articleUrl)
+      articleDescription.appendChild(articleProvider);
+      articleBox.append(articleTitle, articleDescription, articleDate);
+      articleUrl.appendChild(articleBox);
+      articlesContainer.append(articleSectionTitle, articleUrl)
+    }
   }
 
   loader.classList.add('hidden');
   footerContainer.addEventListener('click', renderNewPage);
   sideNavMobile.addEventListener('click', renderNewPage);
+  navLinksDesktop.addEventListener('click', renderNewPage);
   greetModal();
 }
 
 
-function addCurrentPageClass(e) {
+function addCurrentPageClassFooter(e) {
   const newsPaperIcon = document.querySelector('.fa-newspaper');
   const globeIcon = document.querySelector('.fa-globe');
   const meteorIcon = document.querySelector('.fa-meteor');
@@ -247,6 +246,58 @@ function addCurrentPageClass(e) {
     meteorIcon.classList.add('on-current-page');
   } else {
     return;
+  }
+}
+
+
+function addCurrentPageClassTopNav(e) {
+  const astronomyLink = document.querySelector('.top-nav-astronomy');
+  const AILink = document.querySelector('.top-nav-AI');
+  const exoLink = document.querySelector('.top-nav-exo');
+  const meteorLink = document.querySelector('.top-nav-meteor');
+  const topNavLinks = document.querySelectorAll('.top-nav-desktop-item');
+
+  for (let i = 0; i < topNavLinks.length; i++) {
+    topNavLinks[i].classList.remove('on-current-page');
+
+    if (e.target.dataset.queryId === 'astronomy') {
+      astronomyLink.classList.add('on-current-page');
+    } else if (e.target.dataset.queryId === 'A.I. discoveries') {
+      AILink.classList.add('on-current-page');
+    } else if (e.target.dataset.queryId === 'exoplanets') {
+      exoLink.classList.add('on-current-page');
+    } else if (e.target.dataset.queryId === 'meteors') {
+      meteorLink.classList.add('on-current-page');
+    }
+  }
+}
+
+
+function addCurrentPageClassSideNav(e) {
+  const quantumLink = document.querySelector('.quantum-header');
+  const astrobiologyLink = document.querySelector('.astrobiology-link');
+  const gravityLink = document.querySelector('.gravity-link');
+  const setiLink = document.querySelector('.seti-link');
+  const cernLink = document.querySelector('.cern-link');
+  const quantumPhyLink = document.querySelector('.quantum-link');
+  const sideNavLinks = document.querySelectorAll('.side-nav-item');
+
+  for (let i = 0; i < sideNavLinks.length; i++) {
+    sideNavLinks[i].classList.remove('on-current-page');
+
+    if (e.target.dataset.queryId === 'astrobiology') {
+      astrobiologyLink.classList.add('on-current-page');
+    } else if (e.target.dataset.queryId === 'gravity') {
+      gravityLink.classList.add('on-current-page');
+    } else if (e.target.dataset.queryId === 'seti') {
+      setiLink.classList.add('on-current-page');
+    } else if (e.target.dataset.queryId === 'd-wave') {
+      quantumLink.classList.add('on-current-page');
+    } else if (e.target.dataset.queryId === 'cern') {
+      cernLink.classList.add('on-current-page');
+    } else if (e.target.dataset.queryId === 'quantum') {
+      quantumPhyLink.classList.add('on-current-page');
+    }
   }
 }
 
