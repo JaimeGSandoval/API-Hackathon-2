@@ -123,7 +123,7 @@ function renderNewPage(e) {
 
 
 function handleGetDataSuccess(response) {
-  console.log(response)
+
   renderArticle(response);
 
 }
@@ -136,7 +136,7 @@ function handleGetDataError(error) {
   errorText.classList.add('error-text');
   articlesContainer.append(errorText);
   loader.classList.add('hidden');
-  console.log(error);
+  console.error('An error occurred retrieving data:', error);
 }
 
 
@@ -162,7 +162,7 @@ function handleGetHubbleImgSuccess(response) {
 
 
 function handleGetHubbleImgError(error) {
-  console.log(error);
+  console.error('An error occurred retrieving an image:', error);
 }
 
 
